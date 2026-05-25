@@ -4,55 +4,50 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="Sampaio Xavier" />
-    <link href="./styles/output.css" rel="stylesheet">
-    <link href="./styles/styles-input.css" rel="stylesheet">
-    <link href="./styles/styles-portfolio.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles/styles.css" rel="stylesheet">
     <title>Portfolio Sampaio Xavier</title>
 </head>
 
 <body>
     <!-- TERMINAL -->
-    <div id="hero" class="fixed">
+    <div id="hero">
         <div id="chemin-hero">
-            Terminal Sampaio-OS : user@/home$
+            Sampaio-OS : user@/home$
         </div>
         <div class="btn-close" id="openPortfolioBtn">
-            Passer à l'interface
+            &nbsp;Passer à l'interface&nbsp;
         </div>
     </div>
-
-    <div id="terminal-output">
-        <div id="outputid"><br>
-            <p>Bienvenue sur Sampai-OS 2.1</p>
-            <br>
-            <p><a href="https://linkedin.com/in/xavier-sampaio">LinkedIn</a>: linkedin.com/in/xavier-sampaio</p>
-            <p><a href="https://github.com/xaviersampaio">Github</a>: github.com/xaviersampaio</p>
-            <br>
-            <pre id="sysinfo">Erreur de Chargement de l'heure</pre>
-            <br>
-            <div id="gridsys">
-                <pre>Charge système:  0.08                 Processus:             148</pre>
-                <pre>Usage de /:      45.2% of 19.56GB     Utilisateurs:          2</pre>
-                <pre>Usage mémoire:   23%                  Adresse IPv4 eth0:     192.168.1.100</pre>
-                <pre>Usage swap:      0%</pre><br>
+    <div id="terminal">
+        <div id="terminal-output">
+            <div id="outputid"><br>
+                <pre>Bienvenue sur Sampai-OS 2.1</pre>
+                <br>
+                <p><a href="https://linkedin.com/in/xavier-sampaio">LinkedIn</a>: linkedin.com/in/xavier-sampaio</p>
+                <p><a href="https://github.com/xaviersampaio">Github</a>: github.com/xaviersampaio</p>
+                <br>
+                <pre id="sysinfo">Erreur de Chargement de l'heure</pre>
+                <br>
+                <div id="gridsys">
+                    <pre>Charge système:  0.08                 Processus:             148</pre>
+                    <pre>Usage de /:      45.2% of 19.56GB     Utilisateurs:          2</pre>
+                    <pre>Usage mémoire:   23%                  Adresse IPv4 eth0:     192.168.1.100</pre>
+                    <pre>Usage swap:      0%</pre><br>
+                    <pre>Derniere connexion: Aucune date depuis Localhost</pre>
+                </div>
+                <br>
+                <pre>Utiliser <a href="#"onclick="document.getElementById('inputid').textContent = 'help'; return false;">help</a> pour plus de commandes</pre>
+                <pre>Utiliser <a href="#"onclick="document.getElementById('inputid').textContent = 'man sampaio'; return false;">mansampaio</a> pour dérouler le portfolio
+                </pre>
             </div>
-            <p>Derniere connexion: Aucune date depuis Localhost</p>
-            <br>
-            <p>Utiliser <a href="#"
-                    onclick="document.getElementById('inputid').textContent = 'help'; return false;">help</a> pour plus
-                de commandes</p>
-            <p>Utiliser <a href="#"
-                    onclick="document.getElementById('inputid').textContent = 'man sampaio'; return false;">man
-                    sampaio</a> pour dérouler le portfolio</p>
-            <br>
         </div>
-    </div>
-
-    <div id="terminal-input">
-        <div id="prefix">Chargement</div>
-        <span contenteditable="true" id="inputid"></span>
-        <p class="blink">_</p>
-        <button type="submit" id="submitBtn"></button>
+        <div id="terminal-input">
+            <div id="prefix">Chargement</div>
+            <span contenteditable="true" id="inputid"></span>
+            <span class="blink">_</span>
+            <button type="submit" id="submitBtn"></button>
+        </div>
     </div>
 
     <!-- MODALE -->
@@ -64,7 +59,7 @@
                 <div>
                     Portfolio Sampaio Xavier
                 </div>
-                <button id="closeModal" class=" btn-close"> x </button>
+                <button id="closeModal" class=" btn-close"> &nbsp;x &nbsp; </button>
             </div>
 
             <!-- Navigation principale -->
@@ -73,41 +68,202 @@
                     <div class="tabPrimBtn active" data-tab="accueil">Accueil</div>
                     <div class="tabPrimBtn" data-tab="formation">Formation</div>
                     <div class="tabPrimBtn" data-tab="projet">Projet</div>
-                    <div class="tabPrimBtn" data-tab="projet-pers">Projet perso</div>
+                    <div class="tabPrimBtn" data-tab="projet-pers">Projetperso</div>
                     <div class="tabPrimBtn" data-tab="documentation">Documentation</div>
                     <div class="tabPrimBtn" data-tab="contact">Contact</div>
+                    <div class="tabPrimBtn" id="btn-desktop" onclick="window.open('https:/\/portfolio.xavier-sampaio.me', '_blank')"> Version desktop </div>
                 </div>
             </div>
 
             <!-- Contenu modale -->
-            <div id="modalBody">
-
+            <div id="modal-container">
                 <!-- Accueil -->
                 <div id="tab-accueil" class="tab-pane">
-                    <h3 class="text-2xl font-bold mb-4">Accueil</h3>
-                    <h4 class="text-xl mb-2">Etudiant en BTS SIO - Option SISR</h4>
-                    <p>Bienvenue dans mon portfolio. Cette partie est encore en développement.</p>
+                    <h3> Accueil</h3>
+                    <div class="accueil-header">
+                        <div class="accueil-avatar">XS</div>
+                    <div>
+                        <p class="accueil-nom">Xavier Sampaio</p>
+                        <p class="accueil-titre">Étudiant BTS SIO SISR · Administrateur systèmes & réseaux</p>
+                    </div>
                 </div>
-
+                <p class="accueil-bio">
+                    Passionné d'administration Linux, de self-hosting et de développement web.
+                    Je conçois et maintiens des infrastructures réseau, des serveurs auto-hébergés
+                    et des projets web from scratch tels que ce portfolio.
+                </p>   
+                <div class="accueil-section">
+                    <p class="accueil-label">Systèmes & infrastructure</p>
+                    <div class="badges">
+                        <span class="badge">Linux</span>
+                        <span class="badge">Proxmox</span>
+                        <span class="badge">NixOS</span>
+                        <span class="badge">Arch Linux</span>
+                        <span class="badge">mdadm RAID</span>
+                        <span class="badge">WireGuard</span>
+                        <span class="badge">HAProxy</span>
+                        <span class="badge">Apache2</span>
+                        <span class="badge">Nginx</span>
+                        <span class="badge">UFW</span>
+                        <span class="badge">Certbot</span>
+                    </div>
+                </div>
+                <div class="accueil-section">
+                    <p class="accueil-label">Développement web</p>
+                    <div class="badges">
+                        <span class="badge">HTML</span>
+                        <span class="badge">CSS</span>
+                        <span class="badge">JavaScript</span>
+                        <span class="badge">ES Modules</span>
+                    </div>
+                </div>
+                <div class="accueil-section">
+                    <p class="accueil-label">Réseau</p>
+                    <div class="badges">
+                        <span class="badge">DNS</span>
+                        <span class="badge">VPN</span>
+                        <span class="badge">VLAN</span>
+                        <span class="badge">1000BaseT</span>
+                        <span class="badge">Hetzner VPS</span>
+                    </div>
+                </div> 
+                <div class="accueil-contact">
+                    <a href="mailto:pro@xavier-sampaio.me">pro@xavier-sampaio.me</a>
+                    <a href="https://linkedin.com/in/xavier-sampaio">LinkedIn</a>
+                    <a href="https://github.com/xaviersampaio">GitHub</a>
+                </div>
+                </div>
                 <!-- Formation -->
                 <div id="tab-formation" class="tab-pane">
-                    <h3 class="text-2xl font-bold mb-4">Formation</h3>
-                    <p>Mes formations...</p>
+                    <h3>Formation</h3>
+                    <p class="indice">Depuis le lycée, je me suis orienté dans le réseau informatique</p>
+                    <p class="section-label">Lycée</p>
+                    <div class="timeline">
+                        <div class="entry">
+                            <div class="spine">
+                                <div class="dot dot-purple"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-head">
+                                    <span class="card-title">Baccalauréat professionnel | Système Numérique</span>
+                                    <span class="badge badge-purple">2021 – 2024</span>
+                                </div>
+                                <div class="card-sub">Lycée Albert Einstein, Montluçon — Option : Réseau Informatique et
+                                    Système Communicant - RISC</div>
+                                <div class="card-desc">Mention Bien</div>
+                            </div>
+                        </div>
+                        <div class="entry">
+                            <div class="spine">
+                                <div class="dot dot-amber"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-head">
+                                    <span class="card-title">Stage de terminale </span>
+                                    <span class="badge badge-amber">Novembre 2024 – Février 2025</span>
+                                </div>
+                                <div class="card-sub">be-ys, Clermont Fd — 8 semaines</div>
+                                <div class="card-desc">Missions :
+                                    Maintenance et réparation de postes — diagnostic hardware, intervention sur
+                                    incidents, remise en service <br>
+                                    Automatisation d'infrastructure (IaC) sur environnement de virtualisation —
+                                    déploiement, provisioning, gestion de configuration<br>
+                                    Découverte de la cybersécurité — accompagnement d'un RSSI, sensibilisation aux
+                                    enjeux de sécurité du système d'information
+                                </div>
+                            </div>
+                        </div>
+                        <p class="section-label">BTS SIO SISR — 1re année</p>
+                        <div class="entry">
+                            <div class="spine">
+                                <div class="dot dot-purple"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-head">
+                                    <span class="card-title">BTS SIO option SISR — 1re année</span>
+                                    <span class="badge badge-purple">2024 – 2025</span>
+                                </div>
+                                <div class="card-sub">Lycée Sidoine Apollinaire, Clermont Fd</div>
+                                <div class="card-desc">Administration systèmes Linux/Windows, réseaux, virtualisation,
+                                    développement web.</div>
+                            </div>
+                        </div>
+                        <div class="entry">
+                            <div class="spine">
+                                <div class="dot dot-amber"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-head">
+                                    <span class="card-title">Stage 1re année</span>
+                                    <span class="badge badge-amber">Mai – Juin 2024</span>
+                                </div>
+                                <div class="card-sub">AFPA, Beaumont — 6 semaines</div>
+                                <div class="card-desc">Missions :
+                                    Gestion des incidents — traitement et suivi des tickets,
+                                    diagnostic et résolution des dysfonctionnementsRéinstallation de postes —
+                                    déploiement et configuration de systèmes d'exploitation, installation logicielle<br>
+                                    Gestion des incidents — traitement et suivi des tickets, diagnostic et résolution
+                                    des dysfonctionnements <br>
+                                    Planification de tâches — ordonnancement et automatisation de tâches récurrentes
+                                    système
+                                </div>
+                            </div>
+                        </div>
+                        <p class="section-label">BTS SIO SISR — 2e année</p>
+                        <div class="entry">
+                            <div class="spine">
+                                <div class="dot dot-purple"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-head">
+                                    <span class="card-title">BTS SIO option SISR — 2e année</span>
+                                    <span class="badge badge-purple">2025 – 2026</span>
+                                </div>
+                                <div class="card-sub">Lycée Sidoine Apollinaire, Clermont fd</div>
+                                <div class="card-desc">Administration systèmes avancée, sécurité réseau, projets
+                                    professionnels encadrés (GSB).</div>
+                            </div>
+                        </div>
+                        <div class="entry">
+                            <div class="spine">
+                                <div class="dot dot-teal"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-head">
+                                    <span class="card-title">Stage 2e année</span>
+                                    <span class="badge badge-teal">Mars – mai 2026</span>
+                                </div>
+                                <div class="card-sub">AFPA, Beaumont — 6 semaines</div>
+                                <div class="card-desc">Missions :
+                                    Gestion des incidents — traitement et suivi des tickets,
+                                    diagnostic et résolution des dysfonctionnementsRéinstallation de postes —
+                                    déploiement et configuration de systèmes d'exploitation, installation logicielle<br>
+                                    Gestion des incidents — traitement et suivi des tickets, diagnostic et résolution
+                                    des dysfonctionnements <br>
+                                    Planification de tâches — ordonnancement et automatisation de tâches récurrentes
+                                    système
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
                 <!-- Projet  teck sio gsb zengarden-->
                 <div id="tab-projet" class="tab-pane">
                     <h3>Projets Scolaire</h3>
                     <div id='projet-lst'>
                         <!-- Projet 1 | Teck SIO-->
                         <div class="prog">
-                            <img src="data/image/projet/TeckSio/preview.png">
+                            <div class="imgflex">
+                                <img src="data/image/projet/TeckSio/preview.webp">
+                            </div>
                             <h3> Teck sio </h3>
-
-                            <p>
-                                Le projet consister a amenager des locaux a partir d'un cahier des charge.
-
-                            </p>
+                            <p>Le projet consister a amenager des locaux a partir d'un cahier des charge.</p>
                             <button class="voir-plus-btn">Voir plus</button>
                             <!-- Détails cachés -->
                             <div class="details-modal">
@@ -118,24 +274,42 @@
                                     </div>
 
                                     <div class="details-body">
+                                        <p>Diagrame</p>
+                                        <div class="imgflex">
+                                            <img src="/data/image/projet/TeckSio/Previsionnel.png">
+                                            <img src="/data/image/projet/TeckSio/Reel.png">
+                                        </div>
                                         <h5>Contexte</h5><br>
                                         <p>
-                                            Conception des locaux de l’entreprise TechSIO en respectant un budget raisonnable.
+                                            TeckSio est une entreprise IoT en croissance devant déménager dans de
+                                            nouveaux locaux.
+                                            L'occasion de tout repenser : espaces, parc matériel et infrastructure
+                                            réseau from scratch.
                                         </p>
 
                                         <h5>Objectif</h5><br>
                                         <p>
-                                            Réaliser un cahier des charges comprenant : une salle de réunion, une salle technique, une salle de repos, un bureau secrétaire, un bureau directeur et un open space.
+                                            Concevoir l'infrastructure informatique complète des nouveaux locaux, du
+                                            choix du matériel
+                                            jusqu'à la sécurisation du réseau Wi-Fi, en respectant un budget réel.
                                         </p>
 
-                                        <h5>Point de réalisation</h5><br>
+                                        <h5>Réalisations</h5><br>
                                         <p>
-                                            Planification des espaces, du réseau et du budget en fonction des contraintes du cahier des charges.
+                                            Projet mené en équipe avec un planning prévisionnel, des points
+                                            d'avancement réguliers
+                                            et une validation par étapes. Chaque membre avait un périmètre défini :
+                                            agencement des locaux, devis matériel, schémas réseau (physique et
+                                            logique) et sécurité.
                                         </p>
 
                                         <h5>Difficultés</h5><br>
                                         <p>
-                                            Répartition des tâches au sein de l’équipe et coordination du travail.
+                                            Coordonner le travail d'équipe sur un projet multi-étapes : respecter le
+                                            planning,
+                                            se répartir les tâches efficacement et maintenir une cohérence entre les
+                                            différentes
+                                            parties du dossier.
                                         </p>
                                         <h5> Competence :</h5><br>
                                         <div class="competence">
@@ -145,190 +319,173 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Projet 2  | GSB -->
                         <div class="prog">
-                            <img src="data/image/projet/GSB/preview.png">
-                            <h3> GSB </h3>
+                            <div class="imgflex">
+                                <img src="data/image/projet/GSB/preview.webp">
+                            </div>
+                            <h3> GSB - HA Proxy</h3>
 
                             <p>
                                 Dans le contexte GSB, j'ai du monter un reseau WAN/LAN/DMZ.
-                                Le projet permet le deployement de service de redondance, Monitoring, Windows server, Ticketing
-                            </p> 
+                                Le projet permet le deployement de service de redondance, Monitoring, Windows
+                                server, Ticketing
+                            </p>
                             <button class="voir-plus-btn">Voir plus</button>
                             <!-- Détails cachés -->
                             <div class="details-modal">
                                 <div class="details-content">
                                     <div class="details-header">
-                                        <pre> Portfolio Sampaio Xavier | Détails AP GSB </pre>
+                                        <pre> Portfolio Sampaio Xavier | Détails HA Proxy </pre>
                                         <span class="close-details">&times;</span>
                                     </div>
 
                                     <div class="details-body">
-                                        <p class="indice"> Date de realisation: 08/09/25  08/12/25 </p> <br>
+                                        <p class="indice"> Date de realisation: 08/09/25 08/12/25 </p> <br>
                                         <p> plan du projet </p>
-                                        <img src="/data/image/projet/GSB/GSB_Plan.png">
+                                        <div class="imgflex">
+                                            <img src="data/image/projet/GSB/GSB_Plan.webp">
+                                        </div>
                                         <br>
                                         <h5>Contexte</h5><br>
                                         <p>
-                                            Mise en place d’une infrastructure réseau WAN/LAN/DMZ avec des règles de sécurité, dans le cadre du projet GSB.
+                                            Dans le cadre du projet GSB, j'ai déployé un HAProxy en DMZ afin
+                                            d'assurer
+                                            la haute disponibilité et la répartition de charge des services exposés
+                                            de l'entreprise.
                                         </p>
 
                                         <h5>Objectif</h5><br>
                                         <p>
-                                            Concevoir et déployer une architecture réseau fonctionnelle et sécurisée basée sur le contexte GSB.
+                                            Mettre en place un reverse proxy fiable permettant de distribuer le
+                                            trafic entrant
+                                            vers plusieurs serveurs backends, tout en garantissant la continuité de
+                                            service.
                                         </p>
 
-                                        <h5>Point de réalisation</h5><br>
+                                        <h5>Réalisations</h5><br>
                                         <p>
-                                            LAN : Windows Server 2019 (DNS, Active Directory, DHCP), OCS et GLPI.<br>
-                                            DMZ : HAProxy, Checkmk (monitoring), serveur web.<br>
-                                            Routage et sécurité assurés via IPFire.
+                                            Configuration de HAProxy pour répartir la charge entre plusieurs
+                                            serveurs web.
+                                            Mise en place de vérifications d'état (health checks) pour basculer
+                                            automatiquement
+                                            vers un serveur disponible en cas de panne.
                                         </p>
 
-                                        <h5>Difficultés</h5><br>
+                                        <h5>Difficultés rencontrées</h5><br>
                                         <p>
-                                            Configuration et communication entre les différentes zones (LAN/DMZ), gestion des règles de sécurité et mise en place des services réseau.
+                                            La principale difficulté a été de comprendre la logique de configuration
+                                            de HAProxy
+                                            (frontends, backends, ACL) et de l'intégrer correctement dans la DMZ
+                                            avec les bonnes
+                                            règles de pare-feu.
+                                        </p>
+                                        <h5>Difficultés rencontrées</h5><br>
+                                        <p>
+                                            La principale difficulté a été de comprendre la logique frontend/backend
+                                            de HAProxy
+                                            et de définir les bons health checks pour que le basculement automatique
+                                            fonctionne
+                                            correctement. L'intégration dans la DMZ avec les règles de pare-feu
+                                            associées
+                                            a également demandé plusieurs ajustements.
                                         </p>
                                         <h5> Competence :</h5><br>
                                         <div class="competence">
-                                            <p> <strong>Répondre aux incidents et aux demandes d'assistance et d'évolution</strong> </p><br>
                                             <p> <strong>Gérer le patrimoine Informatique</strong> </p><br>
-                                            <p> <strong>Organiser son dÈveloppement professionnel</strong> </p><br>
-                                            <p> <strong>Mettre à disposition des utilisateurs un service informatique</strong> </p><br>
+                                            <!-- uri /admin en parler dans porjet suivant -->
+                                            <p> <strong>Mettre à disposition des utilisateurs un service
+                                                    informatique</strong> </p><br> <!-- Deploiment de service -->
+                                            <p> <strong>Organiser son développement professionnel</strong> </p><br>
+                                            <!-- Dans un contexte scolaire donc OUI -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Projet 3  | ZEN GARDEN-->
+                        <!-- Projet 3  | THIS PORTFOLIO-->
                         <div class="prog">
-                            <img src="data/image/projet/Zengarden/preview.png">
-                            <h3> Zengarden </h3>
+                            <img src="data/image/projet/Portfolio/Portfolio.webp">
+                            <h3>This Portfolio</h3>
 
-                            <p>Un projet dans le but de decouvrir le css </p>
-                            <a href="https://zengarden.xavier-sampaio.me">Lien</a> 
+                            <p>
+                                Portfolio interactif inspiré d’un terminal Linux, permettant de naviguer dans mes
+                                projets
+                                à travers une interface originale et immersive.
+                            </p>
                             <button class="voir-plus-btn">Voir plus</button>
+
                             <!-- Détails cachés -->
                             <div class="details-modal">
                                 <div class="details-content">
                                     <div class="details-header">
-                                        <pre> Portfolio Sampaio Xavier | Détails CSS Zengarden </pre>
+                                        <pre>Portfolio Sampaio Xavier | Détails du portfolio</pre>
                                         <span class="close-details">&times;</span>
                                     </div>
 
                                     <div class="details-body">
-                                        <p class="indice"> Date de realisation: 07/11/25  19/12/25 </p> <br>
-                                        <img src="data/image/projet/Zengarden/SiteOff.png">
+                                        <p class="indice">Date de réalisation : 09/02/26 - Aujourd'hui</p><br>
+
                                         <h5>Contexte :</h5><br>
                                         <p>
-                                            Le projet Zengarden vise à apprendre le CSS en séparant le fond (HTML) et la forme (CSS), afin de transformer visuellement une même structure.
+                                            Ce projet de portfolio a pour but de montrer mon intérêt pour Linux et
+                                            de présenter mes projets.
                                         </p><br>
 
-                                        <h5>Objectif :</h5><br> 
+                                        <h5>Objectif :</h5><br>
                                         <p>
-                                            Créer une version personnalisée du site uniquement en CSS, avec une identité visuelle unique tout en respectant le HTML imposé.
+                                            Créer un portfolio interactif et original, inspiré d’un environnement en
+                                            ligne de commande,
+                                            afin de proposer une expérience utilisateur différente et démontrer mes
+                                            compétences en développement web.
                                         </p><br>
 
-                                        <h5>Point de réalisation :</h5><br>
+                                        <h5>Points de réalisation :</h5><br>
                                         <p>
-                                            Plus de 300 lignes de CSS ont permis d’utiliser flexbox, grid et divers effets visuels, en assurant cohérence graphique et lisibilité.
+                                            Plus de 800 lignes de CSS,
+                                            1200 lignes de JavaScript et
+                                            1200 lignes de HTML
+                                            pour un système entièrement simulé.
                                         </p><br>
 
                                         <h5>Difficultés :</h5><br>
                                         <p>
-                                            Trouver un thème cohérent et gérer certaines contraintes CSS, notamment le responsive et les layouts complexes.
-                                        </p><br>
-
-                                        <h5> Competence :</h5><br>
+                                            La mise en place du système de fichiers simulé (arbre en JavaScript),
+                                            la gestion globale du portfolio (initialement pensé en ligne de
+                                            commande),
+                                            et le respect des bonnes pratiques de développement en partant de zéro.
+                                            Mise en ligne de maniere securisé via reverse proxy
+                                        </p>
+                                        <br><!-- Cacher une identité derriere un serveur pour qu'il puissent en avoir plusieurs pour la meme tache -->
+                                        <h5>Compétences :</h5><br>
                                         <div class="competence">
-                                            <p> <strong>Developper la presence en ligne de l'organisation</strong></p><br>
-                                            <p> <strong>Organiser son developpement professionnel</strong></p>
+                                            <p> <strong>Gérer le patrimoine Informatique</strong> </p><br>
+                                            <!-- uri /admin  image de mon /admin -->
+                                            <p><strong>Développer la présence en ligne d’une organisation</strong>
+                                            </p><br> <!-- Participer à l’évolution d’un site Web exploitant les données de l’organisation. -->
+                                            <p><strong>Organiser son développement professionnel</strong></p>
+                                            <!-- J'ai appris le Javascript en realisant le projet-->
                                         </div>
 
                                         <div class="allerplusloin">
-                                            <a href="https://csszengarden.com/">Site officiel </a><br><br>                                        
-                                            <a href="https://zengarden.xavier-sampaio.me">Voir Mon Zengarden</a><br><br>
+                                            <a href="#" target="_blank" rel="noopener noreferrer">Site officiel</a>
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Projet 4  | CE PORTFOLIO-->
-                        <div class="prog">
-                        <img src="data/image/projet/Portfolio/preview.png">
-                        <h3>Portfolio</h3>
-
-                        <p>
-                            Portfolio interactif inspiré d’un terminal Linux, permettant de naviguer dans mes projets 
-                            à travers une interface originale et immersive.
-                        </p>
-                        <button class="voir-plus-btn">Voir plus</button>
-
-                        <!-- Détails cachés -->
-                        <div class="details-modal">
-                            <div class="details-content">
-                                <div class="details-header">
-                                    <pre>Portfolio Sampaio Xavier | Détails du portfolio</pre>
-                                    <span class="close-details">&times;</span>
-                                </div>
-
-                                <div class="details-body">
-                                    <p class="indice">Date de réalisation : 09/02/26 - Aujourd'hui</p><br>
-
-                                    <img src="data/image/projet/Portfolio/SiteOff.png">
-
-                                    <h5>Contexte :</h5><br>
-                                    <p>
-                                        Ce projet de portfolio a pour but de montrer mon intérêt pour Linux et de présenter mes projets.
-                                    </p><br>
-
-                                    <h5>Objectif :</h5><br> 
-                                    <p>
-                                        Créer un portfolio interactif et original, inspiré d’un environnement en ligne de commande, 
-                                        afin de proposer une expérience utilisateur différente et démontrer mes compétences en développement web.
-                                    </p><br>
-
-                                    <h5>Points de réalisation :</h5><br>
-                                    <p>
-                                        Plus de 550 lignes de CSS,  
-                                        1000 lignes de JavaScript et  
-                                        1000 lignes de HTML  
-                                        pour un système entièrement simulé.
-                                    </p><br>
-
-                                    <h5>Difficultés :</h5><br>
-                                    <p>
-                                        La mise en place du système de fichiers simulé (arbre en JavaScript),  
-                                        la gestion globale du portfolio (initialement pensé en ligne de commande),  
-                                        et le respect des bonnes pratiques de développement en partant de zéro.
-                                    </p><br>
-
-                                    <h5>Compétences :</h5><br>
-                                    <div class="competence">
-                                        <p><strong>Développer la présence en ligne d’une organisation</strong></p><br>
-                                        <p><strong>Organiser son développement professionnel</strong></p>
-                                    </div>
-
-                                    <div class="allerplusloin">
-                                        <a href="#" target="_blank" rel="noopener noreferrer">Site officiel</a>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>        
-                    </div>        
+                    </div>
                 </div>
-
-                <!-- Projet Perso --> 
+                <!-- ProjetPerso -->
                 <div id="tab-projet-pers" class="tab-pane">
                     <div id='projet-lst-perso'>
                         <!-- Projet 1 | Raspberry pi -->
                         <div class="progperso">
-                            <img src="data/image/projet perso/RouteurPreview.jpg">
+                            <div class="imgflex">
+                                <img src="data/image/projetperso/RouteurPreview.webp">
+                            </div>
                             <h3> Routeur Diy :</h3>
                             <p>
                                 D'un raspberry pi 5 a un routeur sous ubuntu LTS 26.04
@@ -342,61 +499,62 @@
                                         <span class="close-details">&times;</span>
                                     </div>
                                     <div class="details-body"><br>
-                                        <div class="lst-perso-requirement"><ul>
-                                            <li> Avoir un appareil avec au moins 2 port RJ45 (je passe par un raspberry avec un hats) </li>
-                                            <li> Etre motivé car faut comprendre iptables/nftables </li>
-                                        </ul>
+                                        <div class="lst-perso-requirement">
+                                            <ul>
+                                                <li> Avoir un appareil avec au moins 2 ports RJ45 (je passe par un
+                                                    Raspberry avec un hats)</li>
+                                                <li> Être motivé car il faut comprendre IPtables/notables</li>
+                                            </ul>
                                         </div>
                                         <div class="Comment faire"><br>
+                                            <p> Je suis parti sur un Raspberry Pi 5 avec un Hats qui fait Nvme 2230
+                                            </p>
+                                            <div class="imgflex">
+                                                <img src="/data/image/projetperso/rasppi5.webp">
+                                                <img src="/data/image/projetperso/hatsrpi5.webp">
+                                            </div>
 
                                             <h5>1. Autoriser le routage </h5>
                                             <code class="code">
-                                                net.ipv4.ip_forward = 1 //dans le /etc/sysctl.conf
-                                            </code>
+                                            net.ipv4.ip_forward = 1 //dans le /etc/sysctl.conf
+                                        </code>
                                             <p class="indice">par défaut le net.ipv4.ip_forward est a 0</p><br>
 
                                             <h5>2. Trouver les interfaces</h5>
                                             <code class="code">
-                                                ip a 
-                                            </code>
+                                            ip a 
+                                        </code>
                                             <p class="indice"> Les interfaces sont generalement ensXX ethX enxX</p>
 
                                             <h5>3. Iptables ou Nftables</h5><br>
-                                            <p> 
-                                                Sur Ubuntu LTS 24/26, nftables est le successeur moderne d’iptables : il unifie IPv4/IPv6, simplifie la syntaxe et améliore la performance et la gestion des règles. iptables reste surtout présent pour la compatibilité, souvent via une couche de traduction, donc les anciennes commandes peuvent encore fonctionner.
-                                                (pour mon plus grand desarois, je me suis rendu compte que c'etais nftables apres 10h de recherche). PS: voir documentation pour fonctionnment Iptables Nftables
+                                            <p>
+                                                Sur Ubuntu LTS 24/26, nftables est le successeur moderne d’iptables
+                                                : il unifie IPv4/IPv6, simplifie la syntaxe et améliore la
+                                                performance et la gestion des règles. iptables reste surtout présent
+                                                pour la compatibilité, souvent via une couche de traduction, donc
+                                                les anciennes commandes peuvent encore fonctionner.
+                                                (pour mon plus grand desarois, je me suis rendu compte que c'etais
+                                                nftables apres 10h de recherche). PS: voir documentation pour
+                                                fonctionnment Iptables Nftables
                                             </p><br>
 
                                             <h5>4. Rendre les règles permanentes </h5>
-                                            <code class="code"> 
-                                                # pour iptables  utiliser  -A pour rendre persistent (penser a installer iptables-persistent)
-                                                nft -f /etc/nftables.conf # pour nftables
-                                            </code>
-                                            <p class="indice"> Penser a mettre en place un dhcp  </p>
-
+                                            <code class="code">
+                                            # pour iptables  utiliser  -A pour rendre persistent (penser a installer iptables-persistent)
+                                            nft -f /etc/nftables.conf # pour nftables
+                                        </code>
+                                            <p class="indice"> Penser a mettre en place un dhcp </p>
                                         </div>
-                                        <!-- 
-                                            Router via raspberry pi avoir :
-                                                - 2 prise RJ45 
-                                                - De la Motivation 
-                                            comment faire:
-                                                - Sysctl net.ipv4.ip_forward dans /etc/sysctl.conf resultat => net.ip.ipv4_Forward = 1 
-                                                - Trouver les interfaces (wan / Lan)
-                                                - Par rapport en version iptables ou nftables (masquerades)
-                                                - Mettre regle de base
-                                                - Flush + persistance si iptables avec iptables-persistent sinon ok
-                                                - DHCP (voir docs)
-                                         -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Projet 2 | -->
+                        <!-- Projet 2 | Acces -->
                         <div class="progperso">
-                            <img>
+                            <img src="data/image/projetperso/hetzner.webp">
                             <h3> Faire un acces internet secursé :</h3>
                             <p>
-                                Accès web  via vps/wireguard/Ha Proxy (en cours de realisation)
+                                Accès web via vps/wireguard/Ha Proxy (en cours de realisation)
                             </p><br>
                             <button class="voir-plus-btn">Voir plus</button>
                             <!-- Détails cachés -->
@@ -407,30 +565,77 @@
                                         <span class="close-details">&times;</span>
                                     </div>
                                     <div class="details-body">
+                                        <div class="Comment faire">
+                                            <h5>1. Prérequis</h5>
+                                            <code class="code">
+                                                # Un VPS (Hetzner recommandé car EU, ou Oracle pour du gratuit)<br>
+                                                # Une machine locale avec les services à exposer
+                                            </code>
+                                            <p class="indice">Hetzner CX23 (Intel®/AMD, 4.48€/mois) suffit largement
+                                                pour ce rôle de point d'entrée. </p>
+                                            <p>J'ai choisi Hetzner car je prevois de faire un serveur de Mail. </p>
+                                            <br>
 
-                                        <!-- 
-                                            Ce qu'il faut pour un acces :
-                                                - Un serveur 
-                                                - De la determinations
-                                            comment faire:
-                                                - Acheter VPS (moi hetzner car EU mais Oracle propose vps gratuit)
-                                                - Installer Wireguard (voir Docs)
-                                                - Installer Ha (voir docs)
-                                                - connecter les deux 
-                                                - securiser vps (UFW)
-                                                - activer le forward sur le ha 
-                                                - Le ha Sert de reverse proxy
-                                                - mettre en place certbot (voir docs)
-                                         -->
+                                            <h5>2. Relier le VPS au homelab via WireGuard</h5>
+                                            <code class="code">
+                                        # Sur le VPS et la machine locale : apt install wireguard<br>
+                                        # Voir section WireGuard de la documentation
+                                    </code>
+                                            <p class="indice">Le VPS devient la passerelle publique — le homelab
+                                                reste injoignable directement depuis internet.</p><br>
+
+                                            <h5>3. Installer HAProxy sur le VPS</h5>
+                                            <code class="code">
+                                        apt install haproxy<br>
+                                        # Voir section HAProxy de la documentation
+                                    </code>
+                                            <p class="indice">HAProxy reçoit les requêtes publiques et les redirige
+                                                vers le homelab via le tunnel WireGuard.</p><br>
+
+                                            <h5>4. Activer le forward dans HAProxy</h5>
+                                            <pre class="predata">
+# /etc/haproxy/haproxy.cfg
+frontend web_public
+bind *:80
+bind *:443 ssl crt /etc/haproxy/certs/example.pem
+default_backend homelab
+
+backend homelab
+server nas 10.0.0.2:80 check  # IP WireGuard du homelab</pre>
+                                            <p class="indice">L'IP <code>10.0.0.2</code> est l'adresse WireGuard de
+                                                la machine locale — pas l'IP publique.</p><br>
+
+                                            <h5>5. Sécuriser le VPS avec UFW</h5>
+                                            <pre class="predata">
+ufw default deny incoming
+ufw allow 22/tcp    # SSH
+ufw allow 80/tcp    # HTTP
+ufw allow 443/tcp   # HTTPS
+ufw allow 51820/udp # WireGuard
+ufw enable</pre>
+                                            <p class="indice">Ajouter le port 22 a UFW avant de l'activer.</p><br>
+
+                                            <h5>6. Certificat SSL avec Certbot</h5>
+                                            <code class="code">
+                                        apt install certbot<br>
+                                        certbot certonly --standalone -d example.com<br>
+                                        # Voir section Certbot de la documentation
+                                    </code>
+                                            <p class="indice">Le certificat est généré sur le VPS — c'est lui qui
+                                                termine le TLS, le homelab reçoit du HTTP en clair via WireGuard.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Projet 3 | NAS -->
                         <div class="progperso">
-                            <img>
+                            <img src="data/image/projetperso/NAS.webp">
                             <h3> NAS Perso :</h3>
                             <p>
-                                Nas a 3 disques en raid 5 Nextcloud en app + Repository linux pour distribution (en cours de realisation)
+                                Nas a 3 disques en raid 5 Nextcloud en app + Repository linux pour distribution (en
+                                cours de realisation)
                             </p>
                             <button class="voir-plus-btn">Voir plus</button>
                             <!-- Détails cachés -->
@@ -440,250 +645,322 @@
                                         <pre> Portfolio Sampaio Xavier | NAS </pre>
                                         <span class="close-details">&times;</span>
                                     </div>
-                                    <div class="details-body">
+                                    <div class="details-body"> 
+                                        <div class="Comment faire">
+                                            <h5>1. Prérequis</h5>
+                                            <code class="code">
+                                                # Un serveur ou NAS sous Ubuntu LTS (22.04 ou 24.04)<br>
+                                                # Au minimum 2 disques pour le RAID<br>
+                                                # Docker et Docker Compose installés
+                                            </code>
+                                            <p class="indice">Ubuntu 24.04 LTS recommandé — nftables remplace iptables, à garder en tête pour les règles firewall.</p>
+                                            <br>
+                                            
+                                            <h5>2. Vérifier l'état du RAID mdadm</h5>
+                                            <code class="code">
+                                                # Voir l'état général<br>
+                                                cat /proc/mdstat<br>
+                                                <br>
+                                                # Détail de l'array<br>
+                                                mdadm --detail /dev/md0
+                                            </code>
+                                            <p class="indice">S'assurer que l'array est en état "clean" avant de continuer. Un array "degraded" signifie qu'un disque est absent ou défaillant.</p>
+                                            <br>
+                                            
+                                            <h5>3. Monter le RAID</h5>
+                                            <pre class="predata">
 
-                                        <!-- 
-                                            Ce qu'il faut pour un acces :
-                                                - 
-                                            comment faire:
-                                                - 
-                                         -->
+# Créer le point de montage
+mkdir -p /mnt/raid
+
+# Montage manuel
+mount /dev/md0 /mnt/raid
+
+# Montage automatique au boot — ajouter dans /etc/fstab
+/dev/md0  /mnt/raid  ext4  defaults,nofail  0  2
+
+</pre>
+                                            <p class="indice">L'option <code>nofail</code> évite un blocage au boot si le RAID n'est pas disponible.</p>
+                                            <br>
+                                            
+                                            <h5>4. Préparer le dossier de données Nextcloud</h5>
+                                            <code class="code">
+                                                mkdir -p /mnt/raid/nextcloud/data<br>
+                                                mkdir -p /mnt/raid/nextcloud/db<br>
+                                                chown -R www-data:www-data /mnt/raid/nextcloud/data
+                                            </code>
+                                            <p class="indice">Les données Nextcloud et la base de données sont stockées directement sur le RAID.</p>
+                                            <br>
+                                            
+                                            <h5>5. Installer Nextcloud via Docker Compose</h5>
+                                            <pre class="predata">
+
+# /opt/nextcloud/docker-compose.yml
+services:
+db:
+    image: mariadb:11
+    restart: always
+    volumes:
+    - /mnt/raid/nextcloud/db:/var/lib/mysql
+    environment:
+    MYSQL_ROOT_PASSWORD: rootpasswd
+    MYSQL_DATABASE: nextcloud
+    MYSQL_USER: nextcloud
+    MYSQL_PASSWORD: nextcloudpasswd
+
+nextcloud:
+    image: nextcloud:apache
+    restart: always
+    ports:
+    - "8080:80"
+    volumes:
+    - /mnt/raid/nextcloud/data:/var/www/html
+    environment:
+    MYSQL_HOST: db
+    MYSQL_DATABASE: nextcloud
+    MYSQL_USER: nextcloud
+    MYSQL_PASSWORD: nextcloudpasswd
+    depends_on:
+    - db
+
+</pre>
+                                            <p class="indice">L'image <code>nextcloud:apache</code> inclut Apache — pas besoin de l'installer séparément.</p>
+                                            <br>
+                                            
+                                            <h5>6. Démarrer les conteneurs</h5>
+                                            <code class="code">
+                                                cd /opt/nextcloud<br>
+                                                docker compose up -d<br>
+                                                <br>
+                                                # Vérifier que tout tourne<br>
+                                                docker compose ps
+                                            </code>
+                                            <br>
+                                            
+                                            <h5>7. Configurer le reverse proxy Apache sur l'hôte</h5>
+                                            <pre class="predata">
+
+# /etc/apache2/sites-available/nextcloud.conf
+&lt;VirtualHost *:80&gt;
+    ServerName cloud.example.com
+    ProxyPass        / http://localhost:8080/
+    ProxyPassReverse / http://localhost:8080/
+&lt;/VirtualHost&gt;
+
+</pre>
+                                            <code class="code">
+                                                a2enmod proxy proxy_http<br>
+                                                a2ensite nextcloud<br>
+                                                systemctl reload apache2
+                                            </code>
+                                            <p class="indice">Apache sur l'hôte fait office de reverse proxy vers le conteneur Nextcloud sur le port 8080.</p>
+                                            <br>
+                                            
+                                            <h5>8. Vérification</h5>
+                                            <code class="code">
+                                                # Logs Nextcloud<br>
+                                                docker compose logs -f nextcloud<br>
+                                                <br>
+                                                # Vérifier l'état du RAID pendant l'utilisation<br>
+                                                watch -n 5 'cat /proc/mdstat'
+                                            </code>
+                                            <br>
+                                            <div class="rappelbleu">
+                                                <p>Pour surveiller l'espace disque du RAID en temps réel :</p>
+                                                <code>watch -n 10 'df -h /mnt/raid'</code>
+                                            </div>
+                                        <br>
+                                        </div>                                      
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                    <!-- Documentation -->
-                    <div id="tab-documentation" class="tab-pane">
-                        <h3>Documentation</h3>
-                        <p class="mb-4">Parce qu'on ne peut pas tout retenir, je documente ici chaque étape de mes
-                            projets système. Cet onglet me sert de base de connaissances pour reproduire mes
-                            environnements de travail.</p>
+                <!-- Documentation -->
+                <div id="tab-documentation" class="tab-pane">
+                    <h3>Documentation</h3>
+                    <p>Parce qu'on ne peut pas tout retenir, je documente ici chaque étape de mes
+                        projets système. Cet onglet me sert de base de connaissances pour reproduire mes
+                        environnements de travail.</p>
 
-                        <div>
-                            <ul> <!--ss onglet-->
-                                <li>
-                                    <div class="doc-btn tabSecbtn active" data-doc="monit-dsk"> 
-                                        Monitoring disques
-                                        <div class="tags">
-                                            <span class="tag">Scripting</span>
-                                            <span class="tag">Monitoring</span>
-                                        </div>
-                                    </div>
-                                </li><hr>
-                                <li>
-                                    <div class="doc-btn tabSecbtn" data-doc="cron"> 
-                                        Cron
-                                        <div class="tags">
-                                            <span class="tag">Scripting</span>
-                                            <span class="tag">Automatisation</span>
-                                        </div>
-                                    </div>
-                                </li><hr>
-                                <li>
-                                    <div class="doc-btn tabSecbtn" data-doc="SSH"> 
-                                        SSH connexion
-                                        <div class="tags">
-                                            <span class="tag">Connexion</span>
-                                            <span class="tag">Securité</span>
-                                        </div>
-                                    </div>
-                                </li><hr>
-                                <li>
-                                    <div class="doc-btn tabSecbtn" data-doc="F2B"> 
-                                        Fail2Ban
-                                        <div class="tags">
-                                            <span class="tag">Securité</span>
-                                            <span class="tag">intrusions</span>
-                                        </div>
-                                    </div>
-                                </li><hr>
-                                <li>
-                                    <div class="doc-btn tabSecbtn" data-doc="RDNS"> 
-                                        DNS Registrar(prochainement)
-                                        <div class="tags">
-                                            <span class="tag">DNS</span>
-                                            <span class="tag">Service</span>
-                                        </div>
-                                    </div>
-                                </li><hr>
-                                <li>
-                                    <div class="doc-btn tabSecbtn" data-doc="DDNS"> 
-                                        DNS domaine(prochainement)
-                                        <div class="tags">
-                                            <span class="tag">DNS</span>
-                                            <span class="tag">Service</span>
-                                        </div>
-                                    </div>
-                                </li><hr>
-                                <li>
-                                    <div class="doc-btn tabSecbtn" data-doc="LDNS"> 
-                                        DNS Local (pihole) (prochainement)
-                                        <div class="tags">
-                                            <span class="tag">DNS</span>
-                                            <span class="tag">Service</span>
-                                        </div>
-                                    </div>
-                                </li><hr>
-                                <li>
-                                    <div class="doc-btn tabSecbtn" data-doc="HA-Bases"> 
-                                        Ha Proxy | Bases (prochainement)
-                                        <div class="tags">
-                                            <span class="tag">Reverse proxy</span>
-                                            <span class="tag">Load Balancing</span>
-                                        </div>
-                                    </div>
-                                </li><hr>
-                                <li>
-                                    <div class="doc-btn tabSecbtn" data-doc="HA-Adv"> 
-                                        Ha Proxy | Avancé (prochainement)
-                                        <div class="tags">
-                                            <span class="tag">Filtrage</span>
-                                            <span class="tag">ACL</span>
-                                        </div>
-                                    </div>
-                                </li><hr>
-                                <li>
-                                    <div class="doc-btn tabSecbtn" data-doc="Apache"> 
-                                        Apache2 (prochainement)
-                                        <div class="tags">
-                                            <span class="tag">Serveur</span>
-                                            <span class="tag">Web</span>
-                                        </div>
-                                    </div>
-                                </li><hr>
-                                <li>
-                                    <div class="doc-btn tabSecbtn"> 
-                                        Mdadm (prochainement)
-                                        <div class="tags">
-                                            <span class="tag">RAID</span>
-                                            <span class="tag">Tolerance de panne</span>
-                                        </div>
-                                    </div>
-                                </li><hr>
-                                <li>
-                                    <div class="doc-btn tabSecbtn"> 
-                                        Repos Linux (prochainement)
-                                        <div class="tags">
-                                            <span class="tag">Depot de Paquets</span>
-                                            <span class="tag">fedora/arch/alpine</span>
-                                        </div>
-                                    </div>
-                                </li><hr>
-                                <li>
-                                    <div class="doc-btn tabSecbtn" data-doc="Rpi5">
-                                        RouteurPi5 (en cours)
-                                        <div class="tags">
-                                            <span class="tag">Routage</span>
-                                            <span class="tag">IPtables/Nftables</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                    <div class="ss-onglet">
+                        <ul> <!--ss onglet-->
+                            <li><div class="doc-btn tabSecbtn active" data-doc="monit-dsk">Monitoring disques
+                                <div class="tags">
+                                    <span class="tag">Scripting</span>
+                                    <span class="tag">Monitoring</span>
+                                </div><hr></div>
+                            </li>
+                            <li><div class="doc-btn tabSecbtn" data-doc="cron">Cron
+                                <div class="tags">
+                                    <span class="tag">Scripting</span>
+                                    <span class="tag">Automatisation</span>
+                                </div><hr></div>
+                            </li>
+                            <li><div class="doc-btn tabSecbtn" data-doc="SSH">SSH Connexion
+                                <div class="tags">
+                                    <span class="tag">Connexion</span>
+                                    <span class="tag">Securité</span>
+                                </div><hr></div>
+                            </li>
+                            <li><div class="doc-btn tabSecbtn" data-doc="F2B">Fail2Ban
+                                <div class="tags">
+                                    <span class="tag">Securité</span>
+                                    <span class="tag">intrusions</span>
+                                </div><hr></div>
+                            </li>
+                            <li><div class="doc-btn tabSecbtn" data-doc="RDNS">DNS Registrar
+                                <div class="tags">
+                                    <span class="tag">DNS</span>
+                                    <span class="tag">Service</span>
+                                </div><hr></div>
+                            </li>
+                            <li>
+                                <div class="doc-btn tabSecbtn" data-doc="DDNS">DNS domaine
+                                <div class="tags">
+                                    <span class="tag">DNS</span>
+                                    <span class="tag">Service</span>
+                                </div><hr></div>
+                            </li>
+                            <li>
+                                <div class="doc-btn tabSecbtn" data-doc="LDNS">DNS Local
+                                <div class="tags">
+                                    <span class="tag">DNS</span>
+                                    <span class="tag">Service</span>
+                                </div><hr></div>
+                            </li>
+                            <li>
+                                <div class="doc-btn tabSecbtn" data-doc="HA-Bases">Ha Proxy | Bases
+                                <div class="tags">
+                                    <span class="tag">Reverse proxy</span>
+                                    <span class="tag">Load Balancing</span>
+                                </div><hr></div>
+                            </li>
+                            <li><div class="doc-btn tabSecbtn" data-doc="HA-Adv">Ha Proxy | Avancé
+                                <div class="tags">
+                                    <span class="tag">Filtrage</span>
+                                    <span class="tag">ACL</span>
+                                </div><hr></div>
+                            </li>
+                            <li><div class="doc-btn tabSecbtn" data-doc="Apache">Apache2
+                                <div class="tags">
+                                    <span class="tag">Serveur</span>
+                                    <span class="tag">Web</span>
+                                </div><hr></div>
+                            </li>
+                            <li><div class="doc-btn tabSecbtn" data-doc="Raid">Mdadm
+                                <div class="tags">
+                                    <span class="tag">RAID</span>
+                                    <span class="tag">Tolerance de panne</span>
+                                </div><hr></div>
+                            </li>
+                            <li>
+                        </ul>
 
-                            <!-- Contenu documentation -->
-                            <div>
-                                <div id="doc-monit-dsk" class="doc-content"> <!-- 1.Monit disques -->
-                                    <h4>Surveillance de disque </h4>
-                                    <p class="instructions">1. Installer l'outils :</p>
-                                    <code class="block bg-black p-2 rounded font-mono text-blue-300">
-                                            # Debian/Ubuntu : apt install smartmontools
-                                            # RHEL/CentOS : dnf install smartmontools<br>
-                                            # Arch : pacman -S smartmontools<br>
-                                        </code>
-                                    <div><br>
-                                        <p class="instructions">2. Vérification manuelle de la santé :</p>
-                                        <code class="code">
+                        <!-- Contenu documentation -->
+                        <div class="content">
+                            <div id="doc-monit-dsk" class="doc-content"> <!-- 1.Monit disques -->
+                                <h4>Surveillance de disque </h4>
+                                <p class="instructions">1. Installer l'outils :</p>
+                                <code class="code">
+                                    # Debian/Ubuntu : apt install smartmontools<br>
+                                    # RHEL/CentOS : dnf install smartmontools<br>
+                                    # Arch : pacman -S smartmontools<br>
+                                </code>
+                                <div><br>
+                                    <p class="instructions">2. Vérification manuelle de la santé :</p>
+                                    <code class="code">
                                             sudo smartctl -H /dev/sda
                                         </code>
-                                        <p class="indice">Chercher la ligne : "SMART overall-health self-assessment test
-                                            result: PASSED"</p>
-                                    </div>
-                                    <div><br>
-                                        <p class="instructions">3. Script de monitoring global :</p>
-                                        <pre class="predata">
+                                    <p class="indice">Chercher la ligne : "SMART overall-health self-assessment test
+                                        result: PASSED"</p>
+                                </div>
+                                <div><br>
+                                    <p class="instructions">3. Script de monitoring global :</p>
+                                    <pre class="predata">
 # Récupérer la santé globale
 health=$(smartctl -H /dev/sda | grep "test result" | awk '{print $6}')
 
 # Récupérer la température
 temp=$(smartctl -A /dev/sda | grep "Temperature_Celsius" | awk '{print $10}')</pre>
-                                    </div><br>
-                                    <div class="rappelbleu">
-                                        <p>Pour surveiller en temps réel (toutes les 5s) :</p>
-                                        <code>watch -n 5 './check-disk-temp.sh'</code>
-                                    </div><br>
-                                </div>
-                                <div id="doc-cron" class="doc-content"> <!-- 2.Cron -->
-                                    <h4>Automatisation avec Cron</h4>
-                                    <p class="instructions">1. Installation et activation :</p>
-                                    <code class="code">
+                                </div><br>
+                                <div class="rappelbleu">
+                                    <p>Pour surveiller en temps réel (toutes les 5s) :</p>
+                                    <code>watch -n 5 './check-disk-temp.sh'</code>
+                                </div><br>
+                            </div>
+                            <div id="doc-cron" class="doc-content"> <!-- 2.Cron -->
+                                <h4>Automatisation avec Cron</h4>
+                                <p class="instructions">1. Installation et activation :</p>
+                                <code class="code">
                                         sudo apt install cron<br>
                                         sudo systemctl enable --now cron
                                     </code>
-                                    <div><br>
-                                        <p class="instructions">2. Comprendre la syntaxe (Les 5 étoiles) :</p>
-                                        <div class="predata">
-                                            <p>* * * * * commande</p>
-                                            <p>│ │ │ │ │</p>
-                                            <p>│ │ │ │ └── Jour de la semaine (0-6)</p>
-                                            <p>│ │ │ └──── Mois (1-12)</p>
-                                            <p>│ │ └────── Jour du mois (1-31)</p>
-                                            <p>│ └──────── Heure (0-23)</p>
-                                            <p>└────────── Minute (0-59)</p>
-                                        </div>
+                                <div><br>
+                                    <p class="instructions">2. Comprendre la syntaxe (Les 5 étoiles) :</p>
+                                    <div class="predata">
+                                        <pre class="predata">
+* * * * * commande
+│ │ │ │ │ 
+│ │ │ │ └── Jour de la semaine (0-6)
+│ │ │ └──── Mois (1-12)
+│ │ └────── Jour du mois (1-31)
+│ └──────── Heure (0-23)
+└────────── Minute (0-59)</pre>
                                     </div>
-
-                                    <div><br>
-                                        <p class="instructions">3. Script de sauvegarde (Tous les dimanches à 3h) :</p>
-                                        <code class="code">
-                                                0 3 * * 0 /home/adm-nc/rsync.sh >> /var/log/repo-sync.log 2>&1
-                                            </code>
-                                        <p class="indice">Note : "2>&1" redirige les erreurs (stderr) vers le même
-                                            fichier que les logs standards (stdout).</p>
-                                    </div><br>
-
-                                    <div class="grid grid-cols-2 gap-2 text-xs">
-                                        <div class="rappelbleu">
-                                            <p>crontab -e</p><br>Éditer vos tâches
-                                        </div>
-                                        <div class="rappelbleu">
-                                            <p>crontab -l</p><br>Lister vos tâches
-                                        </div>
-                                    </div><br>
                                 </div>
-                                <div id="doc-SSH" class="doc-content"> <!-- 3.SSH -->
-                                    <h4>Connexion SSH via Clé & Alias</h4>
-                                    <p class="instructions">1. Générer la paire de clés (ED25519) :</p>
-                                    <code class="code">
-                                        ssh-keygen -t ed25519 -C "votre_email@exemple.com" 
-                                    </code>
-                                    <p class="indice">Le commentaire peut etre sous n'importe quel forme</p><br>
 
-                                    <p class="instructions">2. Envoyer la clé sur le serveur :</p>
+                                <div><br>
+                                    <p class="instructions">3. Script de sauvegarde (Tous les dimanches à 3h) :</p>
                                     <code class="code">
+                                        0 3 * * 0 /home/adm-nc/rsync.sh >> /var/log/repo-sync.log 2>&1
+                                    </code>
+                                    <p class="indice">Note : "2>&1" redirige les erreurs (stderr) vers le même
+                                        fichier que les logs standards (stdout).</p>
+                                </div><br>
+
+                                <div class="grid grid-cols-2 gap-2 text-xs">
+                                    <div class="rappelbleu">
+                                        <p>crontab -e</p><br>Éditer vos tâches
+                                    </div>
+                                    <div class="rappelbleu">
+                                        <p>crontab -l</p><br>Lister vos tâches
+                                    </div>
+                                </div><br>
+                            </div>
+                            <div id="doc-SSH" class="doc-content"> <!-- 3.SSH -->
+                                <h4>Connexion SSH via Clé & Alias</h4>
+                                <p class="instructions">1. Générer la paire de clés (ED25519) :</p>
+                                <code class="code">
+                                    ssh-keygen -t ed25519 -C "votre_email@exemple.com" 
+                                </code>
+                                <p class="indice">Le commentaire peut etre sous n'importe quel forme</p><br>
+
+                                <p class="instructions">2. Envoyer la clé sur le serveur :</p>
+                                <code class="code">
                                         ssh-copy-id -i ~/.ssh/id_ed25519.pub user@ip_du_serveur
                                     </code><br>
-                                    <p class="instructions">3. Configurer l'alias (~/.ssh/config) :</p>
-                                    <pre class="predata">
+                                <p class="instructions">3. Configurer l'alias (~/.ssh/config) :</p>
+                                <pre class="predata">
 Host nas
     HostName ip_du_nas
     User votre_utilisateur
     IdentityFile ~/.ssh/id_ed25519</pre><br>
-                                    <div class="rappelvert">
-                                        <p><strong>Succès :</strong> Désormais, tapez simplement ssh nas</p>
-                                    </div><br>
-                                </div>
-                                <div id="doc-F2B" class="doc-content"> <!-- 4.Fail2Ban -->
-                                    <h4>Fail2Ban : Protection contre les
-                                        intrusions</h4>
+                                <div class="rappelvert">
+                                    <p><strong>Succès :</strong> Désormais, tapez simplement ssh nas</p>
+                                </div><br>
+                            </div>
+                            <div id="doc-F2B" class="doc-content"> <!-- 4.Fail2Ban -->
+                                <h4>Fail2Ban : Protection contre les
+                                    intrusions</h4>
+                                <div>
+                                    <p>
+                                        Surveille les logs système et bannit les IPs suspectes via le pare-feu.</p>
                                     <div>
-                                        <p>
-                                            Surveille les logs système et bannit les IPs suspectes via le pare-feu.</p>
-                                        <div>
-                                            <p class="instructions">1. Configuration SSH
-                                                (/etc/fail2ban/jail.local)</p>
-                                            <pre class="code">
+                                        <p class="instructions">1. Configuration SSH
+                                            (/etc/fail2ban/jail.local)</p>
+                                        <pre class="code">
 [sshd]
 enabled  = true
 port     = ssh
@@ -692,112 +969,412 @@ logpath  = /var/log/auth.log
 maxretry = 3
 bantime  = 1h
 ignoreip = 127.0.0.1/8 192.168.1.0/24</pre>
+                                    </div>
+
+                                    <div><br>
+                                        <p class="instructions">2. Cas d'usages
+                                            avancés</p>
+                                        <div class="rappelvert">
+                                            <p> <strong> HA Proxy</strong></p>
+                                            <p>Bannit les IPs qui génèrent
+                                                trop d'erreurs HTTP 404 ou 403 (scanners de vulnérabilités).</p>
                                         </div>
+                                    </div>
 
-                                        <div><br>
-                                            <p class="instructions">2. Cas d'usages
-                                                avancés</p>
-                                                <div class="rappelvert">
-                                                    <p> <strong> HA Proxy</strong></p>
-                                                    <p>Bannit les IPs qui génèrent
-                                                        trop d'erreurs HTTP 404 ou 403 (scanners de vulnérabilités).</p>
-                                                </div>
-                                            </div>
-
-                                            <div><br>
-                                                <p class="instructions">3. Commandes
-                                                    d'administration</p>
-                                                <div>
-                                                    <div class="code">
-                                                        <code class="text-orange-300">fail2ban-client status sshd</code>
-                                                        <span class="text-[10px] text-zinc-500 italic">Voir les IPs
-                                                            bannies</span>
-                                                    </div> <br>
-                                                    <div class="coderouge">
-                                                        <code>fail2ban-client set sshd unbanip &lt;IP&gt;</code>
-                                                        <span >Débannir une IP</span>
-                                                    </div>
-                                                </div>
-                                            </div><br>
-                                            <div class="rappelrouge">
-                                                <p >
-                                                    <strong>Attention :</strong> Toujours ajouter votre IP dans
-                                                    <code>ignoreip</code> pour éviter de vous auto-bannir par erreur
-                                                    lors de tests !
-                                                </p>
+                                    <div><br>
+                                        <p class="instructions">3. Commandes
+                                            d'administration</p>
+                                        <div>
+                                            <div class="code">
+                                                <code>fail2ban-client status sshd</code>
+                                                <span>Voir les IPs
+                                                    bannies</span>
+                                            </div> <br>
+                                            <div class="coderouge">
+                                                <code>fail2ban-client set sshd unbanip &lt;IP&gt;</code>
+                                                <span>Débannir une IP  </span>
                                             </div>
                                         </div>
+                                    </div><br>
+                                    <div class="rappelrouge">
+                                        <p>
+                                            <strong>Attention :</strong> Toujours ajouter votre IP dans
+                                            <code>ignoreip</code> pour éviter de vous auto-bannir par erreur
+                                            lors de tests !
+                                        </p>
+                                    </div>
                                 </div>
-                                <div id="doc-RDNS" class="doc-content"> <!--5.DNS Registrar  to do-->
-                                    <p>registrar</p>
+                            </div>
+                            <div id="doc-RDNS" class="doc-content"> <!-- 5.DNS Registrar.-->
+                                <h4>Registrar – Configurer les DNS records</h4>
+                                <p class="instructions">1. Types de records essentiels :</p>
+                                <code class="block bg-black p-2 rounded font-mono text-blue-300">
+                                        A      example.com.      3600  IN  A      192.168.1.10<br>
+                                        CNAME  www.example.com.  3600  IN  CNAME  example.com.<br>
+                                        MX     example.com.      3600  IN  MX  10 mail.example.com.<br>
+                                        TXT    example.com.      3600  IN  TXT    "v=spf1 mx ~all"
+                                    </code>
+
+                                <div><br>
+                                    <p class="instructions">2. Vérifier la propagation d'un record :</p>
+                                    <code class="code">dig A example.com @8.8.8.8</code>
+                                    <p class="indice">Chercher la section "ANSWER SECTION" — si vide, le record
+                                        n'est pas encore propagé.</p>
                                 </div>
-                                <div id="doc-RDNS" class="doc-content"> <!--5.DNS Registrar  to do-->
-                                    <p>registrar</p>
-                                </div>
-                                <div id="doc-DDNS" class="doc-content"> <!--6.DNS domaine  to do-->
-                                    <p>DNS server</p>
-                                </div>
-                                <div id="doc-LDNS" class="doc-content"> <!--7.DNS local  to do-->
-                                    <p> dns Local</p>
-                                </div>
-                                <div id="doc-HA-Bases" class="doc-content"> <!--9.HA Proxy | Bases  to do-->
-                                    <p>ha base</p>
-                                </div>
-                                <div id="doc-HA-Adv" class="doc-content"> <!--10.HA Proxy | Avancé  to do-->
-                                    <p>ha adv</p>
-                                </div>
-                                <div id="doc-Apache" class="doc-content"> <!--11.Apache2  to do-->
-                                    <p> apache2</p>
-                                </div>
-                                <div id="doc-Raid" class="doc-content"> <!--12.Mdadm  to do-->
-                                    <p>Raid</p>
-                                </div>
-                                <div id="doc-RepL" class="doc-content"> <!--13.Repot Linux  to do-->
-                                    <p>Rep</p>
-                                </div>
-                                <div id="doc-Rpi5" class="doc-content"> <!--14.Routeur Raspberry pi5  en cours-->
-                                    <h4> Montage de Mon Raspberry PI en tant que routeur </h4>
-                                    <p> 
-                                        J'ai un routeur un peu special ce n'est ni unifi ou cisco ou hp. c'est ... Ubuntu LTS 26.04 sur un raspberry pi.
-                                        j'ai un hats qui est le suivant : 
+
+                                <div><br>
+                                    <p class="instructions">3. Script de vérification multi-records :</p>
+                                    <pre class="predata">
+DOMAIN="example.com"
+for TYPE in A MX TXT; do
+    echo "--- $TYPE ---"
+    dig $TYPE $DOMAIN +short
+done</pre>
+                                </div><br>
+
+                                <div class="rappelbleu">
+                                    <p>Surveiller la propagation toutes les 30s :</p>
+                                    <code>watch -n 30 'dig A example.com +short'</code>
+                                </div><br>
+                            </div>
+                            <div id="doc-DDNS" class="doc-content"> <!-- 6.DNS Domaine-->
+                                <h4>Serveur DNS – Unbound (résolveur)</h4>
+                                <p class="instructions">1. Installer Unbound :</p>
+                                <code class="block bg-black p-2 rounded font-mono text-blue-300">
+                                        # Debian/Ubuntu : apt install unbound<br>
+                                        # RHEL/CentOS  : dnf install unbound<br>
+                                        # Arch          : pacman -S unbound
+                                    </code>
+
+                                <div><br>
+                                    <p class="instructions">2. Configuration minimale
+                                        <code>/etc/unbound/unbound.conf</code> :
                                     </p>
-                                    <img src="data/image/documentation/RPI5/">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                    <div id="tab-contact" class="tab-pane">
-                        <h4>Contact</h4>
-                        <br>
-                        <div>
-                            <div>
-                                <div>👤</div>
-                                <div>
-                                    <h2>Xavier Sampaio</h2>
-                                    <pre>Développeur & Sysadmin</pre>
-                                </div>
-                            </div>
-
-                            <div>
-                                <span>contact mail</span><br>
-                                <div class="code">
-                                    <a href="mailto:pro@xavier-sampaio.me">pro@xavier-sampaio.me</a>
+                                    <pre class="predata">
+server:
+    interface: 127.0.0.1
+    port: 53
+    access-control: 127.0.0.0/8 allow
+    access-control: 192.168.0.0/16 allow
+    hide-identity: yes
+    hide-version: yes
+    harden-dnssec-stripped: yes
+    use-caps-for-id: yes</pre>
+                                    <p class="indice">Activer puis démarrer :
+                                        <code>systemctl enable --now unbound</code>
+                                    </p>
                                 </div>
 
-                                <span>contact LinkedIn</span><br>
-                                <div class="code">
-                                    <a href="https://www.linkedin.com/in/xavier-sampaio">xavier-sampaio</a>
+                                <div><br>
+                                    <p class="instructions">3. Script de vérification du résolveur :</p>
+                                    <pre class="predata">
+# Tester la résolution locale
+result=$(dig example.com @127.0.0.1 +short)
+if [ -z "$result" ]; then
+    echo "ERREUR : Unbound ne répond pas"
+else
+    echo "OK : $result"
+fi
+# Vérifier le statut du service
+systemctl is-active unbound</pre>
+                                </div><br>
+
+                                <div class="rappelbleu">
+                                    <p>Tester DNSSEC et les stats en temps réel :</p>
+                                    <code>watch -n 5 'unbound-control stats_noreset | grep -E "total|cache"'</code>
+                                </div><br>
+                            </div>
+                            <div id="doc-LDNS" class="doc-content"> <!-- 7.DNS local-->
+                                <h4>DNS local – /etc/hosts</h4>
+                                <p class="instructions">1. Format du fichier <code>/etc/hosts</code> :</p>
+                                <code class="block bg-black p-2 rounded font-mono text-blue-300">
+                                        127.0.0.1       localhost<br>
+                                        192.168.1.10    nas.local     nas<br>
+                                        192.168.1.20    proxmox.local proxmox<br>
+                                        192.168.1.1     router.local
+                                    </code>
+
+                                <div><br>
+                                    <p class="instructions">2. Vérifier la résolution d'un nom local :</p>
+                                    <code class="code">getent hosts nas.local</code>
+                                    <p class="indice">Si vide : vérifier que <code>files</code> est bien présent
+                                        avant <code>dns</code> dans <code>/etc/nsswitch.conf</code> à la ligne
+                                        <code>hosts:</code>.
+                                    </p>
                                 </div>
+
+                                <div><br>
+                                    <p class="instructions">3. Script d'audit des entrées locales :</p>
+                                    <pre class="predata">
+echo "=== Entrées /etc/hosts (hors loopback) ==="
+grep -v "^#\|^$\|127\.\|::1" /etc/hosts
+
+echo "=== Test de résolution ==="
+while read -r ip host _; do
+    result=$(getent hosts "$host" | awk '{print $1}')
+    [ "$result" = "$ip" ] && echo "OK  $host -> $ip" \
+                        || echo "ERR $host (attendu $ip, obtenu $result)"
+done < <(grep -v "^#\|^$\|127\.\|::1" /etc/hosts)</pre>
+                                </div><br>
+
+                                <div class="rappelbleu">
+                                    <p>Éditer rapidement sans risquer de casser le fichier :</p>
+                                    <code>sudo cp /etc/hosts /etc/hosts.bak && sudo nano /etc/hosts</code>
+                                </div><br>
+                            </div>
+                            <div id="doc-HA-Bases" class="doc-content"> <!-- 8. HA Proxy | base-->
+                                <h4>HAProxy – Bases</h4>
+                                <p class="instructions">1. Installer HAProxy :</p>
+                                <code class="code">
+                                    # Debian/Ubuntu : apt install haproxy<br>
+                                    # RHEL/CentOS  : dnf install haproxy<br>
+                                    # Arch          : pacman -S haproxy
+                                </code>
+
+                                <div><br>
+                                    <p class="instructions">2. Structure de base
+                                        <code>/etc/haproxy/haproxy.cfg</code> :
+                                    </p>
+                                    <pre class="predata">
+global
+    log /dev/log local0
+    maxconn 2000
+
+defaults
+    mode http
+    timeout connect 5s
+    timeout client  30s
+    timeout server  30s
+    log global
+
+frontend mon_frontend
+    bind *:80
+    default_backend mes_serveurs
+
+backend mes_serveurs
+    balance roundrobin
+    server web1 192.168.1.10:80 check
+    server web2 192.168.1.11:80 check</pre>
+                                    <p class="indice"><code>balance roundrobin</code> distribue les requêtes à tour
+                                        de rôle entre les serveurs.</p>
+                                </div>
+
+                                <div><br>
+                                    <p class="instructions">3. Vérifier la configuration et redémarrer :</p>
+                                    <code class="code">haproxy -c -f /etc/haproxy/haproxy.cfg</code>
+                                    <p class="indice">Si "Configuration file is valid" :
+                                        <code>systemctl reload haproxy</code>
+                                    </p>
+                                </div><br>
+
+                                <div class="rappelbleu">
+                                    <p>Surveiller l'état des backends en temps réel :</p>
+                                    <code>watch -n 3 'echo "show stat" | socat stdio /run/haproxy/admin.sock | cut -d, -f1,2,18'</code>
+                                </div><br>
+                            </div>
+                            <div id="doc-HA-Adv" class="doc-content"> <!-- 8. HA Proxy | Avancé-->
+                                <h4>HAProxy – Avancé (ACL & HTTPS)</h4>
+                                <p class="instructions">1. ACL – Routage conditionnel par nom de domaine :</p>
+                                <pre class="predata">
+frontend mon_frontend
+    bind *:80
+    bind *:443 ssl crt /etc/haproxy/certs/example.pem
+
+    # Définition des ACL
+    acl host_app1 hdr(host) -i app1.example.com
+    acl host_app2 hdr(host) -i app2.example.com
+
+    # Routage selon l'ACL
+    use_backend backend_app1 if host_app1
+    use_backend backend_app2 if host_app2
+    default_backend backend_app1
+
+backend backend_app1
+    balance leastconn
+    server app1a 192.168.1.20:8080 check
+    server app1b 192.168.1.21:8080 check
+
+backend backend_app2
+    balance roundrobin
+    server app2a 192.168.1.30:8080 check</pre>
+                                <p class="indice"><code>leastconn</code> envoie vers le serveur avec le moins de
+                                    connexions actives — adapté aux longues sessions.</p>
+
+                                <div><br>
+                                    <p class="instructions">2. Redirection HTTP → HTTPS et stats :</p>
+                                    <pre class="predata">
+frontend mon_frontend
+    bind *:80
+    # Rediriger tout le HTTP vers HTTPS
+    redirect scheme https code 301 if !{ ssl_fc }
+
+listen stats
+    bind *:8404
+    stats enable
+    stats uri /stats
+    stats refresh 5s
+    stats auth admin:motdepasse</pre>
+                                    <p class="indice">Interface web de stats accessible sur
+                                        <code>http://ip:8404/stats</code>
+                                    </p>
+                                </div>
+
+                                <div><br>
+                                    <p class="instructions">3. Script de vérification des backends :</p>
+                                    <pre class="predata">
+echo "=== État des backends ==="
+echo "show stat" | socat stdio /run/haproxy/admin.sock \
+    | awk -F, 'NR>1 && $2 != "BACKEND" {
+        printf "%-20s %-10s %s\n", $1, $2, $18
+    }'
+# $18 = status (UP/DOWN)</pre>
+                                </div><br>
+
+                                <div class="rappelbleu">
+                                    <p>Tester une ACL sans recharger la config :</p>
+                                    <code>echo "show acl" | socat stdio /run/haproxy/admin.sock</code>
+                                </div><br>
+                            </div>
+                            <div id="doc-Apache" class="doc-content"> <!-- 9. Apache2 -->
+                                <h4>Apache2 – Configuration</h4>
+                                <p class="instructions">1. Installer Apache2 :</p>
+                                <code class="block bg-black p-2 rounded font-mono text-blue-300">
+                                        # Debian/Ubuntu : apt install apache2<br>
+                                        # RHEL/CentOS  : dnf install httpd<br>
+                                        # Arch          : pacman -S apache
+                                    </code>
+
+                                <div><br>
+                                    <p class="instructions">2. Créer un VirtualHost
+                                        <code>/etc/apache2/sites-available/monsite.conf</code> :
+                                    </p>
+                                    <pre class="predata">
+&lt;VirtualHost *:80&gt;
+    ServerName monsite.example.com
+    DocumentRoot /var/www/monsite
+
+    &lt;Directory /var/www/monsite&gt;
+        AllowOverride All
+        Require all granted
+    &lt;/Directory&gt;
+
+    ErrorLog  ${APACHE_LOG_DIR}/monsite_error.log
+    CustomLog ${APACHE_LOG_DIR}/monsite_access.log combined
+&lt;/VirtualHost&gt;</pre>
+                                    <p class="indice">Activer le site :
+                                        <code>a2ensite monsite.conf && systemctl reload apache2</code>
+                                    </p>
+                                </div>
+
+                                <div><br>
+                                    <p class="instructions">3. Modules utiles à activer :</p>
+                                    <pre class="predata">
+a2enmod rewrite   # Réécriture d'URL (.htaccess)
+a2enmod ssl       # HTTPS
+a2enmod headers   # Manipulation des en-têtes HTTP
+a2enmod proxy proxy_http  # Reverse proxy
+systemctl reload apache2</pre>
+                                    <p class="indice">Lister les modules actifs : <code>apache2ctl -M</code></p>
+                                </div><br>
+
+                                <div class="rappelbleu">
+                                    <p>Tester la config et suivre les erreurs en temps réel :</p>
+                                    <code>apache2ctl configtest && tail -f /var/log/apache2/error.log</code>
+                                </div><br>
+                            </div>
+                            <div id="doc-Raid" class="doc-content"> <!-- 10.RAID -->
+                                <h4>RAID – Redondance avec mdadm</h4>
+                                <p class="instructions">1. Installer mdadm :</p>
+                                <code class="block bg-black p-2 rounded font-mono text-blue-300">
+                                        # Debian/Ubuntu : apt install mdadm<br>
+                                        # RHEL/CentOS  : dnf install mdadm<br>
+                                        # Arch          : pacman -S mdadm
+                                    </code>
+
+                                <div><br>
+                                    <p class="instructions">2. Niveaux RAID et redondance apportée :</p>
+                                    <pre class="predata">
+RAID 0  — Aucune redondance. Données réparties sur N disques.
+          Perte d'1 disque = perte totale des données.
+          Avantage : performances maximales en lecture/écriture.
+
+RAID 1  — Miroir complet. Chaque disque est une copie exacte.
+          Tolère la panne de N-1 disques.
+          Avantage : lecture rapide, reconstruction simple.
+
+RAID 5  — Parité distribuée sur au moins 3 disques.
+          Tolère la panne d'1 disque sans perte de données.
+          Avantage : bon compromis espace / redondance.
+
+RAID 6  — Double parité sur au moins 4 disques.
+          Tolère la panne simultanée de 2 disques.
+          Avantage : sécurité accrue pour les grands volumes.</pre>
+                                    <p class="indice">Le RAID ne remplace pas une sauvegarde — il protège contre la
+                                        panne matérielle, pas contre la suppression accidentelle.</p>
+                                </div>
+
+                                <div><br>
+                                    <p class="instructions">3. Créer un RAID 5 et surveiller la reconstruction :</p>
+                                    <pre class="predata">
+# Créer le RAID 5 sur 3 disques
+mdadm --create /dev/md0 --level=5 --raid-devices=3 \
+      /dev/sdb /dev/sdc /dev/sdd
+
+# Suivre la progression de la reconstruction
+watch -n 2 'cat /proc/mdstat'
+
+# Vérifier l'état détaillé
+mdadm --detail /dev/md0</pre>
+                                    <p class="indice">Chercher <code>State : clean</code> — tant que c'est
+                                        <code>degraded</code> ou <code>recovering</code>, la reconstruction est en
+                                        cours.
+                                    </p>
+                                </div><br>
+
+                                <div class="rappelbleu">
+                                    <p>Simuler une panne et ré-ajouter un disque :</p>
+                                    <code>mdadm /dev/md0 --fail /dev/sdd && mdadm /dev/md0 --remove /dev/sdd && mdadm /dev/md0 --add /dev/sdd</code>
+                                </div><br>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <div id="tab-contact" class="tab-pane">
+                <h4>Contact</h4>
+                <br>
+                <div>
+                    <div>
+                        <div>👤</div>
+                        <div>
+                            <h2>Xavier Sampaio</h2>
+                            <pre>Développeur & Sysadmin</pre>
+                        </div>
+                    </div>
 
-        <script src="./script/prep.js"></script>
-        <script type="module" src="./script/script.js"></script>
+                    <div>
+                        <span>contact mail</span><br>
+                        <div class="code">
+                            <a href="mailto:pro@xavier-sampaio.me">pro@xavier-sampaio.me</a>
+                        </div>
+
+                        <span>contact LinkedIn</span><br>
+                        <div class="code">
+                            <a href="https://www.linkedin.com/in/xavier-sampaio">xavier-sampaio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Ouverture des images en grand -->
+    <div id="lightbox">
+        <img id="lightbox-img">
+    </div>
+
+    <script src="./script/prep.js"></script>
+    <script type="module" src="./script/script.js"></script>
 </body>
 
 </html>
