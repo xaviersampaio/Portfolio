@@ -27,18 +27,24 @@ const commands = {
     exit: exit,                                     //fait
     sl: sl,                                         //fait
     echo: (args) => echo(args),                     //fait
-    vim: vim,                                       // 2
-    mkdir: mkdir,                                   // 1
-    alsamixer: alsamixer,                           // 2
+    vim: (args) => vim(args),                       //fait
+    mkdir: (args) => mkdir(args),                   //fait
+    alsamixer: alsamixer,                           //fait
     whoami: whoami,                                 //fait
     login: (args) => sulogin(args, 'login'),        //fait
     su: (args) => sulogin(args, 'su'),              //fait
     uname: (args) => uname(args),                   //fait
-    man: (args) => man(args),                       //en cours 
-    ollama: ollama,                                 // 3
-    neofetch: neofetch,                             // fait
-    
-};
+    man: (args) => man(args),                       //fait 
+    ollama: ollama,                                 // a externaliser
+    neofetch: neofetch,                             //fait
+    rm: rm,                                         //a faire
+    ping: ping,                                     //a faire
+    ifconfig: ifconfig,                             //a faire
+    ip: (args) => ip(args),                         //a faire
+    netstat: netstat,                               //a faire
+    ssh: ssh,                                       //a faire
+    //                                         faire autocompletion
+};       
 // Constantes UI 
 const input = document.getElementById('inputid');
 const submit = document.getElementById('submitBtn');
@@ -47,11 +53,13 @@ const openBtn = document.getElementById('openPortfolioBtn');
 // État du focus 
 const focusCurser = {
     onTerm: 0,
-    onVim: 1,
-    onUserConnect: 2,
-    onUserCreate: 3,
-    onPager: 4,
-    onManSampaio: 5,
+    onUserConnect: 1,
+    onUserCreate: 2,
+    onPager: 3,
+    onManSampaio: 4,
+    onAlsa: 5,
+    onVimCommande: 6,
+    onVimInsert: 7
 };
 let focusActuel = focusCurser.onTerm;
 
@@ -85,6 +93,9 @@ let userlist = {
 let cptuserlist = Object.keys(userlist).length + 1;
 let tabsInitialized = false;
 
+//pager
+const nbLignes = 25;
+
 
 // neofetch
 const ram = navigator.deviceMemory || '?';
@@ -107,14 +118,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-//
+input.focus(); // premier focus 
+// refocus avec la souris
+document.addEventListener('click', function() {
+    if (focusActuel === focusCurser.onTerm) {
+        input.focus();
+    }
+});
 
 // Validation Enter
 document.addEventListener('keydown', function(enter) {
     switch (focusActuel) {
 
-        case focusCurser.onTerm:
-            input.focus();
+        case focusCurser.onTerm: {// 0
             if (enter.key === 'Enter') {
                 enter.preventDefault();
                 const command = input.innerText;
@@ -123,20 +139,25 @@ document.addEventListener('keydown', function(enter) {
                 window.scrollTo(0, document.body.scrollHeight);
                 historique.push(command);
                 historiqueIndex = -1;
+                input.focus(); // ← remet le focus après avoir vidé
 
             } else if (enter.key === 'ArrowUp') {
+                enter.preventDefault();
                 if (historiqueIndex < historique.length - 1) historiqueIndex++;
                 document.getElementById('inputid').textContent = historique[historique.length - 1 - historiqueIndex];
+                setCursorToEnd(input);
 
             } else if (enter.key === 'ArrowDown') {
+                enter.preventDefault();
                 if (historiqueIndex > -1) historiqueIndex--;
                 document.getElementById('inputid').textContent = historiqueIndex === -1
                     ? ''
                     : historique[historique.length - 1 - historiqueIndex];
+                setCursorToEnd(input);
             }
-            setCursorToEnd(input);
             break;
-        case focusCurser.onUserCreate:
+        }
+        case focusCurser.onUserCreate: {// 2
             if (enter.key === 'Enter') {
                 const passwd1 = document.getElementById('passwd1').value;
                 const passwd2 = document.getElementById('passwd2').value;
@@ -159,7 +180,8 @@ document.addEventListener('keydown', function(enter) {
                 focus(focusCurser.onTerm);
             }
             break;
-        case focusCurser.onUserConnect:
+        }
+        case focusCurser.onUserConnect: { // 1
             if (enter.key === 'Enter') {
                 const passwdconnect = document.getElementById('passwd');
                 const userFound = Object.values(userlist).find(
@@ -179,20 +201,20 @@ document.addEventListener('keydown', function(enter) {
                 focus(focusCurser.onTerm);
             }
             break;
-        case focusCurser.onPager:
+        }
+        case focusCurser.onPager: {// 3
             if (enter.key === 'Enter' || enter.key === ' ') {
                 document.querySelector('.page')?.remove();
                 if (session.pager.raw) {
                     pagerRaw(session.pager.lignes, session.pager.index);
-                    
                 } else {
                     pager(session.pager.lignes, session.pager.index);
                 }
-                focus(focusCurser.onTerm);
-                focus(focusCurser.onPager);
+                window.scrollTo(0, document.body.scrollHeight);
             }
             break;
-        case focusCurser.onManSampaio:
+        }
+        case focusCurser.onManSampaio: { // 4
             if (enter.key === 'Enter') {
                 const response = document.getElementById('manSampaioInput')?.value.toLowerCase().trim();
                 if (response === 'oui' || response === 'o' || response === 'yes' || response === 'y') {
@@ -209,8 +231,103 @@ document.addEventListener('keydown', function(enter) {
                 focus(focusCurser.onTerm);
             }
             break;
-    }
-});
+        }
+        case focusCurser.onVimCommande: { //6
+            const vimContent = document.getElementById('vim-content'); // id=vim-content    Le contenu
+            const vimstatus = document.getElementById('vim-statusbar'); // id=vim-statusbar Affiche l'etat
+            const vimCmd = document.getElementById('vim-cmd'); // id=vim-cmd                Les commandes   
+
+            if (enter.key === 'Escape') {
+            vimCmd.focus();
+            }
+            if (enter.key === 'Enter' && vimCmd === document.activeElement) {
+                const cmd = vimCmd.value.trim();
+                vimCmd.value = '';
+                
+                for (let i = 0; i < cmd.length; i++) {
+                    switch (cmd[i]) {
+                    case 'i':
+                        if (cmd == 'i') {
+                            enter.preventDefault(); // empêche le i d'écrire
+                            session.vimMode = 'insert';
+                            document.getElementById('vim-content').removeAttribute('readonly');
+                            document.getElementById('vim-content').focus();
+                            document.getElementById('vim-statusbar').textContent = '-- INSERT --';
+                            focus(focusCurser.onVimInsert);
+                            break;
+                        }
+                    case 'g':
+                        if (cmd === 'gg') {
+                            vimContent.scrollTop = 0; vimContent.selectionStart = 0
+                        }
+                        break;
+                    case 'G':
+                        if (cmd === 'G') {
+                            vimContent.selectionStart = vimContent.value.length
+                        }
+                    case ':': // premier caractère obligatoire pour les commandes la suite necessite ce caratere en base
+                        if (i !== 0) {
+                        document.getElementById('vim-statusbar').textContent = 'Commande inconnue';i = cmd.length;  }
+                        break;
+                    case 'w':
+                        if (cmd[0] !== ':') { document.getElementById('vim-statusbar').textContent = 'Commande inconnue'; i = cmd.length; break; } //verif si 1er caractere est :
+                        session.vimNode.content = vimContent.value
+                        break;
+                    case 'q':
+                        if (cmd[0] !== ':') { document.getElementById('vim-statusbar').textContent = 'Commande inconnue'; i = cmd.length; break; } //verif si 1er caractere est :
+                        document.getElementById('vim-ui').remove();
+                        document.getElementById('outputid').innerHTML = session.savedOutput;
+                        session.vimNode = null;
+                        session.vimMode = null;
+                        session.vimNomFichier = null;
+                        focus(focusCurser.onTerm);
+                        break;
+                    case '!':
+                        break; // force, ignoré
+                    
+                    default:
+                        document.getElementById('vim-statusbar').textContent = 'Commande inconnue : ' + cmd;
+                        i = cmd.length;
+                    }
+                }
+            }
+            break;
+        }
+        case focusCurser.onVimInsert: { //7
+            if (enter.key === 'Escape') { //repasser en vimcommande
+                session.vimMode = 'normal';
+                document.getElementById('vim-content').setAttribute('readonly', true);
+                document.getElementById('vim-statusbar').textContent = '-- NORMAL --';
+                document.getElementById('vim-cmd').focus();
+                focus(focusCurser.onVimCommande);
+            }
+            break;
+        }
+        case focusCurser.onAlsa: {//5
+            enter.preventDefault();
+            if (enter.key === 'ArrowRight') session.alsa.vol = Math.min(100, session.alsa.vol + 5);
+            if (enter.key === 'ArrowLeft')  session.alsa.vol = Math.max(0,   session.alsa.vol - 5);
+            if (enter.key === 'q' || enter.key === 'Escape') {
+                focus(focusCurser.onTerm);
+            } else {
+                renderAlsa();
+            }
+            break;
+        }
+}});
+/////////////////////
+// Version  mobile //
+/////////////////////
+if (window.innerWidth <= 768) {
+    // disclamer
+    document.getElementById('gridsys').innerHTML = `
+        <pre style="color: #fa4343ff;">Site optimisé pour desktop. At your own risk</pre>
+    `;
+    
+}
+
+
+
 
 /////////////////////
 //fonction Commande//
@@ -274,8 +391,8 @@ function clear() {
     document.getElementById("outputid").innerHTML = "";
 }; 
 function exit(){
-    clear();
     alert("Connexion fermée. Vous pouvez fermer cet onglet.");
+    location.reload();  
 };
 function sl() { 
     getdatafromfile('/bin/sl', 'raw')
@@ -315,6 +432,7 @@ function adduser(inputCommandpart, paramuservalid) {
     }
 
     // On stocke le username en attente et on affiche le form
+    session.pendingUsername = username;
     getdatafromfile("/bin/adduser").then(content => {
         if (content) {
             // 1. On transforme le tableau en texte (puisque getdatafromfile fait un .split('\n'))
@@ -357,12 +475,90 @@ function echo (inputCommandpart) {
 // tester 
 // gerer si .content est distant
 
-function vim (inputCommandpart) {};
+function vim (inputCommandpart) {
 
-function mkdir(inputCommandpart) {};
+    const nomFichier = inputCommandpart[0]; // recup le nom de fichier 
+    session.savedOutput = document.getElementById('outputid').innerHTML; //sauvegarde le contenu
 
-function alsamixer(inputCommandpart) {};
+    // verif si bien fichier 
+    if (inputCommandpart.length < 1) {
+        outputoutput('vim: manque un nom de fichier');
+        return;
+    };
+    if (inputCommandpart[1] === '-y') {
+        const nodeParent = getNode(located);
+        nodeParent.children[nomFichier] = { // cree le noeud
+            type: NODE_TYPE.FILE,
+            content: '',
+            Permission: PERMISSION.READ_WRITE
+        };
+        // on remet nodeActuel pour la suite
+        session.vimNode = nodeParent.children[nomFichier];
+        session.vimNomFichier = nomFichier;
+    };
+    const nodeActuel = getNode(located + '/' + nomFichier); // prepare la resolution 
+    if (!nodeActuel) {
+        outputoutput('fichier inexistant, veuillez spécifier -y pour le créer');
+        return;
+    };
+    if (nodeActuel.type !== NODE_TYPE.FILE) {
+        outputoutput('vim: ' + nomFichier + ' est un répertoire');
+        return;
+    };
+    session.savedOutput = document.getElementById('outputid').innerHTML;
+    session.vimNode = nodeActuel;
+    session.vimMode = 'normal';
+    focus(focusCurser.onVimCommande);
+    clear();
+    outputoutputraw(`
+    <div id="vim-ui" style="position:fixed; inset:0; background:#111827; display:flex; flex-direction:column; z-index:9998; font-family:'Courier New',Courier,monospace;">
+    <textarea id="vim-content" readonly style="flex:1; background:#111827; color:#ffffff; border:none; outline:none; padding:0.5rem; resize:none; font-family:'Courier New',Courier,monospace; font-size:14px;"></textarea>
+    <div id="vim-statusbar" style="background:#374151; color:#ffffff; padding:2px 8px; font-size:12px;">-- NORMAL --</div>
+    <input id="vim-cmd" type="text" style="background:#111827; color:#ffffff; border:none; border-top:1px solid #374151; outline:none; padding:4px 8px; font-family:'Courier New',Courier,monospace; font-size:14px; width:100%;" />
+    </div>
+    `);
+    setTimeout(() => {
+        if (session.vimNode.content) {
+            getdatafromfile(located + '/' + nomFichier).then(lines => {
+            document.getElementById('vim-content').value = lines ? lines.join('\n') : '';
+            });
+        }
+        document.getElementById('vim-cmd').focus();
+    }, 0);
+}
 
+function mkdir(inputCommandpart) {
+    console.log(inputCommandpart);
+    if (inputCommandpart.length < 1) {
+        outputoutput('mkdir: manque un opérande');
+        return;
+    }
+
+    const nomDossier = inputCommandpart[0];
+    
+    const nodeActuel = getNode(located);
+    if (!nodeActuel || nodeActuel.type !== NODE_TYPE.DIR) {
+        outputoutput('mkdir: répertoire courant invalide');
+        return;
+    }
+
+    if (nodeActuel.children[nomDossier]) {
+        outputoutput(`mkdir: impossible de créer le répertoire '${nomDossier}': Le fichier existe`);
+        return;
+    }
+
+    nodeActuel.children[nomDossier] = {
+        type: NODE_TYPE.DIR,
+        Permission: PERMISSION.READ_WRITE,
+        children: {}
+    };
+};
+function alsamixer(inputCommandpart) {
+  session.alsa = { vol: 40 };
+  outputoutputraw('<div id="alsamixer-ui"></div>');
+  renderAlsa();
+  focus(focusCurser.onAlsa);
+};
 function whoami() {
     outputoutput(session.currentUser)
 };
@@ -370,6 +566,10 @@ function sulogin(inputCommandpart, type) {
     typeActuel = type;
     if (!inputCommandpart[0]) {
         outputoutput('pour utiliser cette commande faire'+ typeActuel +' [nom d\'utilisateur]');
+    } else if (inputCommandpart[0] === 'user') {
+        session.currentUser = 'user';
+        outputoutput('Connecté en tant que user');
+        focus(focusCurser.onTerm);
     } else {
         connectusrid = inputCommandpart[0]
         outputoutputraw("Inserer le mot de passe : <input type='password' id='passwd' name='Mot de passe' placeholder='••••••••' style='background:transparent; border:none; border-bottom: 1px solid white; color:white; outline:none;' required />")
@@ -446,13 +646,21 @@ RAM: ${ram}Go
 CPU cores: ${cpu}
 Chargement: ${loadTime}ms
 </pre>`)
-}
+};
+function rm() {} // ajouter -r //ajouter rm -rf
+function ping () {}  // 1.1.1.1 8.8.8.8 127.0.0.1
+function ifconfig() {}  
+function ip() {}   //a //si change address de eth0 alors tuer inputbtn
+function netstat() {}
+function ssh() {} // fonction knownhost  // bloquer ips exterieur a localhost
+
+
 ////////////////////
 //fonction systeme//
 ////////////////////
 
-// Utilitaire : navigue dans Filesystem à partir d'un chemin string, retourne le noeud ou null
-function getNode(path) {
+
+function getNode(path) { //construit le chemin renvoie { type: '', content: '', Permission: }
     const parts = path.split('/').filter(Boolean);
     let node = Filesystem;
     for (const part of parts) {
@@ -461,7 +669,7 @@ function getNode(path) {
     }
     return node;
 };
-function outputinput(inputCommand) {
+function outputinput(inputCommand) { //sortie de l'utilisateur et de sa commande
     const output = document.getElementById('outputid');
     const newLine = document.createElement('div');
     const prefixecomm = session.currentUser + '@' + located + '$';
@@ -471,7 +679,7 @@ function outputinput(inputCommand) {
     newLine.textContent = prefixecomm + inputCommand;
     output.appendChild(newLine);
 };
-function readline(inputCommand) {
+function readline(inputCommand) { // recupere la commande + la split si &&
     outputinput(inputCommand);
     const commandSplit = (inputCommand.match(/(".*?"|[^\s]+)/g) || []).map(arg => arg.replace(/^"|"$/g, ''));
     const split = '&&';
@@ -487,7 +695,7 @@ function readline(inputCommand) {
         console.log('plusieurs séparations détectées');
     }
 };
-function doLine(inputCommandpart) {
+function doLine(inputCommandpart) { // forme le contenu en output pour outputoutput
     const cmdName = inputCommandpart[0];
     if (!cmdName) return;
 
@@ -501,21 +709,21 @@ function doLine(inputCommandpart) {
         output.appendChild(newLine);
     }
 };
-function outputoutputraw(inputoutput) {
+function outputoutputraw(inputoutput) { //sort le contenu mais avec execution
     const output = document.getElementById('outputid');
     const newLine = document.createElement('pre');
     newLine.innerHTML = inputoutput.replace(/\n/g, '<br>');
     newLine.style.whiteSpace = 'pre-wrap';
     output.appendChild(newLine);
 };
-function outputoutput(inputoutput) {
+function outputoutput(inputoutput) { //sort le contenu sans execution
     const output = document.getElementById('outputid');
     const newLine = document.createElement('div');
     newLine.textContent = inputoutput;
     newLine.style.whiteSpace = 'pre-wrap';
     output.appendChild(newLine);
 };
-function chemin(inputCommandpart) {
+function chemin(inputCommandpart) { //resouds le chemin
     if (!inputCommandpart || inputCommandpart.length === 0) return located;
 
     const target = inputCommandpart[0];
@@ -546,7 +754,7 @@ function chemin(inputCommandpart) {
 
     return '/' + parts.join('/');
 };
-async function getdatafromfile(path) {
+async function getdatafromfile(path) { // recupere le contenu des fichier
     const node = getNode(path);
 
     if (!node) {
@@ -567,45 +775,38 @@ async function getdatafromfile(path) {
         return Promise.resolve(null);
     }
 
+    if (!node.content.startsWith('data/')) {
+        return Promise.resolve(node.content.split('\n'));
+    }
+
     return fetch(node.content)
         .then(r => r.text())
         .then(data => data.split('\n'));
 };
-function afficherLignes(lignes) {
-    if (lignes.length <= PAGER_LIMIT) {
-        lignes.forEach(ligne => outputoutput(ligne));
-    } else {
-        pager(lignes);
-    }
-};
-function afficherLignesRaw(lignes) {
+function afficherLignesRaw(lignes) { // dirige le contenue vers pager si trop long sinon envois
     if (lignes.length <= PAGER_LIMIT) {
         outputoutputraw(lignes.join('\n'));
     } else {
         pagerRaw(lignes);
     }
 };
-function playCd() {
+function playCd() { 
     const audio = new Audio();
     audio.src = getdatafromfile("/dev/CD.m4a");
-    CDAudio.volume = 0.4;
+    CDAudio.volume = session.alsa.vol / 100;
     audio.play();
 };
-function focus(inputCommandpart) {
+function focus(inputCommandpart) { // changement de mode
     focusActuel = inputCommandpart;
-    input.blur();  
-
-    setTimeout(() => {
-        if (inputCommandpart === focusCurser.onTerm) {
-            input.focus();
-        } else if (inputCommandpart === focusCurser.onUserConnect) {
-            document.getElementById('passwd')?.focus();
-        } else if (inputCommandpart === focusCurser.onManSampaio) {
-            document.getElementById('manSampaioInput')?.focus();
-        }
-    }, 0);
-};
-function pager(lignes, index = 0, nbLignes = 25) {
+    if (inputCommandpart === focusCurser.onTerm) {
+        input.focus();
+    } else if (inputCommandpart === focusCurser.onUserConnect) {
+        document.getElementById('passwd')?.focus();
+    } else if (inputCommandpart === focusCurser.onManSampaio) {
+        document.getElementById('manSampaioInput')?.focus();
+    }
+}
+function pager(lignes, index = 0) { // pagination ss execusion
     const slice = lignes.slice(index, index + nbLignes);
     slice.forEach(ligne => outputoutput(ligne));
 
@@ -619,6 +820,7 @@ function pager(lignes, index = 0, nbLignes = 25) {
             nbLignes: nbLignes
         };
         focus(focusCurser.onPager);
+        window.scrollTo(0, document.body.scrollHeight);
     } else {
         // plus rien à afficher → on nettoie et on rend le focus
         outputoutput("-- Fin --");
@@ -627,12 +829,12 @@ function pager(lignes, index = 0, nbLignes = 25) {
         focus(focusCurser.onTerm);
     }
 };
-function pagerRaw(lignes, index = 0, nbLignes = 25) {
+function pagerRaw(lignes, index =0) { //pagination avec execusion
     const slice = lignes.slice(index, index + nbLignes);
     outputoutputraw(slice.join('\n'));
 
     if (index + nbLignes < lignes.length) {
-        outputoutputraw("<div class=page>-- Plus -- (Entrée/Espace: continuer</div>");
+        outputoutputraw("<div class=page>-- Plus -- (Entrée/Espace: continuer )</div>");
         session.pager = {
             lignes: lignes,
             index: index + nbLignes,
@@ -646,28 +848,46 @@ function pagerRaw(lignes, index = 0, nbLignes = 25) {
         focus(focusCurser.onTerm);
     }
 }
-function interfacesampaio() {
+function interfacesampaio() { // parti portfolio initialise les onglet et leur modaux
     const modal = document.getElementById('modalManSampaio');
-    modal.classList.add('show');  // Au lieu de remove('hidden')
-    
-    initTabs();
-    initVoirPlus();
-    initDocTabs();
-    
+    const btn = document.getElementById('openPortfolioBtn');
+    modal.classList.add('show');
+    btn.textContent = ''; // passe en "Fermer" à l'ouverture
+
+
+    initTabs();     // Les onglets primordiaux
+    initVoirPlus(); // Les modaux des modaux
+    initDocTabs();  // Les documentations
+    initTagFilter() // Filtres des documentations 
+    initLightbox(); // L'ouverture des images en grand
+
+
     // Fermeture
-    document.getElementById('closeModal').onclick = function() {
-        modal.classList.remove('show');
-        focus(focusCurser.onTerm);
-    };
-    
     modal.onclick = function(e) {
         if (e.target === modal) {
             modal.classList.remove('show');
+            btn.textContent = 'Passer à l\'interface'; 
             focus(focusCurser.onTerm);
         }
     };
-}
-function initTabs() {
+};
+function initLightbox() { // image en grand
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.imgflex img').forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+};
+function initTabs() { // initialise les onglets
   if (tabsInitialized) return;
   tabsInitialized = true;
 
@@ -696,7 +916,7 @@ function initTabs() {
     if (targetPane) targetPane.style.display = 'block';
   }
 };
-function initVoirPlus() {
+function initVoirPlus() { // initialise le modal du modal
     // Boutons Voir plus
     document.querySelectorAll('.voir-plus-btn').forEach(btn => {
         btn.addEventListener('click', function (e) {
@@ -723,7 +943,7 @@ function initVoirPlus() {
         };
     });
 }
-function initDocTabs() {
+function initDocTabs() { // initalise les documentations
     const docButtons = document.querySelectorAll('.tabSecbtn');
     const docContents = document.querySelectorAll('.doc-content');
 
@@ -756,7 +976,34 @@ function initDocTabs() {
         if (targetDoc) targetDoc.style.display = 'block';
     }
 };
-function setCursorToEnd(element) {
+function initTagFilter() { //permet le filtrage des documentation
+  document.querySelectorAll('.tag').forEach(tag => {
+    tag.addEventListener('click', (e) => {
+      e.stopPropagation(); // évite de déclencher le doc-btn en dessous
+
+      const tagName = tag.textContent;
+      const isActive = tag.classList.contains('active');
+
+      // désactive tous les tags actifs
+      document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+
+      if (!isActive) {
+        // active le tag cliqué et filtre
+        document.querySelectorAll('.tag').forEach(t => {
+          if (t.textContent === tagName) t.classList.add('active');
+        });
+        document.querySelectorAll('.doc-btn').forEach(btn => {
+          const tags = Array.from(btn.querySelectorAll('.tag')).map(t => t.textContent);
+          btn.classList.toggle('hidden', !tags.includes(tagName));
+        });
+      } else {
+        // désactive le filtre → tout afficher
+        document.querySelectorAll('.doc-btn').forEach(btn => btn.classList.remove('hidden'));
+      }
+    });
+  });
+}
+function setCursorToEnd(element) { // gerer le curseur a la fin quand fleches haut et bas
     element.focus();
     const range = document.createRange();
     const selection = window.getSelection();
@@ -765,7 +1012,7 @@ function setCursorToEnd(element) {
     selection.removeAllRanges();
     selection.addRange(range);
 };
-function errchemin(nodeerr, patherr, commerr, typeerr, rais1err, rais2err) {
+function errchemin(nodeerr, patherr, commerr, typeerr, rais1err, rais2err) { // gestion des erreur pour les pages de base (ls,cd,cat)
     if (!patherr) {
         return true;
     } else if (!nodeerr) {
@@ -776,4 +1023,22 @@ function errchemin(nodeerr, patherr, commerr, typeerr, rais1err, rais2err) {
         return true;
     }
     return false;
+};
+function barreVolume(vol) { // gestion du vomume pour playCD
+  const total = 20; // largeur de la barre
+  const rempli = Math.round(vol / 100 * total);
+  return '[' + '#'.repeat(rempli) + ' '.repeat(total - rempli) + '] ' + vol + '%';
+};
+function renderAlsa() { //rendu du alsa
+  const el = document.getElementById('alsamixer-ui');
+  el.innerHTML = `
+    <pre>
+  ┌────────────────────────────────────┐
+  │             alsamixer              │
+  ├────────────────────────────────────┤
+  │ Master  ${barreVolume(session.alsa.vol)} │
+  │                                    │
+  │  ←/→ volume   q: quitter           │
+  └────────────────────────────────────┘
+    </pre>`;
 };

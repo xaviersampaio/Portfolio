@@ -27,19 +27,19 @@
  Fichiers
  ──────────────────────────────────────────
  echo   [texte]       Affiche du texte
- vim    [fichier]     Editer des fichier (bientôt)
- mkdir  [nom]         Creer des repertoire (bientôt)
+ vim    [fichier]     Editer des fichier
+ mkdir  [nom]         Creer des repertoire 
 
  Réseau
  ──────────────────────────────────────────
- ping   [hôte]        ping un ordinateur distant (bientôt)
- ifconfig             Interface Internet (bientôt)
+ ping   [hôte]        Ping un ordinateur distant (bientôt)
+ ifconfig / ip        Interface Internet (bientôt)
  netstat              Connextion internet (bientôt)
  ssh    [hôte]        Connexion SSH (bientôt)
 
  Divertissement
  ──────────────────────────────────────────
- alsamixer            ajustement audio (bientôt)
+ alsamixer            Ajustement audio 
  ollama run           AI assistant (bientôt)
 
  Documentation

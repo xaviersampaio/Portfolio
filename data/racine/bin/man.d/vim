@@ -1,15 +1,14 @@
 VIM(1)                        Manuel de l'utilisateur                       VIM(1)
-
 NOM
-       vim - Editeur de texte
+       vim - Editeur de texte modal
 
 SYNOPSIS
-       vim [FICHIER]
+       vim [FICHIER] [-y]
 
 DESCRIPTION
        vim est un éditeur de texte modal inspiré de Vi/Vim.
        Ouvre le fichier spécifié dans une interface d'édition dédiée.
-       Le fichier doit exister et avoir les permissions READ_WRITE.
+       Utiliser -y pour créer le fichier s'il n'existe pas.
 
 MODES
        Normal    Mode par défaut, navigation et commandes
@@ -17,30 +16,37 @@ MODES
 
 TOUCHES EN MODE NORMAL
        i              Passer en mode insertion
-       Echap          Revenir en mode normal
+       gg             Aller au début du fichier
+       G              Aller à la fin du fichier
        :w             Sauvegarder le fichier
-       :q             Quitter vim
+       :q             Quitter (échoue si modifications non sauvegardées)
        :wq            Sauvegarder et quitter
+       :q!            Quitter sans sauvegarder
 
 TOUCHES EN MODE INSERTION
-       Echap          Revenir en mode normal
+       Echap          Revenir en mode normal (appuyer deux fois)
        Toutes les autres touches écrivent dans le fichier
+
+OPTIONS
+       -y             Créer le fichier s'il n'existe pas
 
 UTILISATION
        vim /home/notes
               Ouvre le fichier /home/notes en édition.
+       vim /home/notes -y
+              Crée et ouvre /home/notes si inexistant.
 
 CODES D'ERREUR
-       Fichier introuvable
-              Le chemin spécifié n'existe pas.
-
+       Fichier inexistant
+              Spécifier -y pour le créer.
+       Répertoire
+              Le chemin pointe vers un dossier, pas un fichier.
        Permission refusée
               Le fichier n'a pas les permissions READ_WRITE.
 
 VOIR AUSSI
-       cat(1), echo(1)
+       cat(1), echo(1), touch(1)
 
 AUTEUR
        Sampaio - X-oS 2.1
-
-X-oS 2.1                                                                     VIM(1)
+X-oS 2.2                                                                     VIM(1)

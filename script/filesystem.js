@@ -193,10 +193,10 @@ export const Filesystem = {
             children: {
                 'session_xQ7k.tmp': { type: NODE_TYPE.FILE, Permission: PERMISSION.READ_WRITE, content: '...' },
                 '.ICE-unix':       { type: NODE_TYPE.DIR, Permission: PERMISSION.NONE, children: {} },
-                'todo.txt':           { content: 'data/racine/tmp/todo.txt' },
-                'mot_de_passe.txt':   { content: 'data/racine/tmp/mot_de_passe' },
-                'README':             { content: 'data/racine/tmp/README' },
-                'delete_me':          { content: 'data/racine/tmp/delete_me' },
+                'todo.txt':           { type: NODE_TYPE.FILE,  Permission: PERMISSION.READ_WRITE, content: 'data/racine/tmp/todo.txt' },
+                'mot_de_passe.txt':   { type: NODE_TYPE.FILE,  Permission: PERMISSION.READ_WRITE, content: 'data/racine/tmp/mot_de_passe' },
+                'README':             { type: NODE_TYPE.FILE,  Permission: PERMISSION.READ_WRITE, content: 'data/racine/tmp/README' },
+                'delete_me':          { type: NODE_TYPE.FILE,  Permission: PERMISSION.READ_WRITE, content: 'data/racine/tmp/delete_me' },
             }
         },
         'var': { 
@@ -250,6 +250,5 @@ export const Filesystem = {
                 'local': { type: NODE_TYPE.DIR, Permission: PERMISSION.READ_ONLY, children: {} },
             }
         }
-
     },
 };
