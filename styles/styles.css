@@ -479,6 +479,30 @@ body {
     justify-items: center;
     justify-content: center;
 }
+.certif-lst {
+    display: grid ;
+    grid-template-columns:  repeat(4, 1fr);
+    gap: 20px;
+    height: 100%;
+}
+.certif {
+    min-height: 30%; 
+    align-items: stretch;
+    background: #27272a; 
+    border: 2px solid #22c55e; 
+    border-radius: 4px;
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+}
+.certif .imgflex  { max-height: 200px;}
+.certif .imgflex img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%
+}
 .prog, .progperso {
     background: #27272a; 
     border: 2px solid #22c55e; 
