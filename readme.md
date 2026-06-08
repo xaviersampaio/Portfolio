@@ -21,8 +21,7 @@ Ce portfolio a été conçu pour :
 
 ## ✨ Fonctionnalités existantes
 
-- [x] Commande de base linux (cd,ls,cat,su) - - ( vim est en cours)
-- [x] Arborescence de Fichier a retrouver dans /data/Arborescence.txt
+- [x] Commande de base linux (cd,ls,cat,su, vim) 
 - [x] Design moderne et épuré
 - [x] Ajout d’un historique
 - [x] Ajout de la possibilité de créer des comptes avec un répertoire dédié
@@ -34,7 +33,6 @@ Ce portfolio a été conçu pour :
 Voici quelques améliorations prévues pour les prochaines versions du portfolio :
 
 - [ ] Objectif : ajout d’un LLM (modèle de langage étendu), probablement Qwen2.5:3B
-- [ ] objectif : Ajouter un editeur de text (vim, nano, ...)
 
 ---
 
@@ -55,15 +53,11 @@ Selon la configuration du projet :
 │   ├── 📁 data
 │   │   ├── 📁 racine⚙️
 │   │   │   │   └──  A découvrir
-│   │   └── 📄 Arborescence.txt
 │   ├── 📁 script
 │   │   ├── 📄 filesystem.js
+│   │   ├── 📄 prep.js
 │   │   └── 📄 script.js
 │   ├── 📁 styles
-│   │   ├── 🎨 input.css
-│   │   ├── 🎨 output.css
-│   │   ├── 🎨 styles-input.css
-│   │   ├── 🎨 styles-portfolio.css
 │   │   └── 🎨 styles.css
 │   ├── 🌐 index.html
 │   ├── 📝 readme.md
