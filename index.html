@@ -66,12 +66,11 @@
             <div id="modalNav" class="modal-body">
                 <div id="modalPrimMenu">
                     <div class="tabPrimBtn active" data-tab="accueil">Accueil</div>
-                    <div class="tabPrimBtn" data-tab="formation">Formation</div>
-                    <div class="tabPrimBtn" data-tab="projet">Projet</div>
-                    <div class="tabPrimBtn" data-tab="projet-pers">Projetperso</div>
-                    <div class="tabPrimBtn" data-tab="documentation">Documentation</div>
+                    <div class="tabPrimBtn" data-tab="formation">Formations</div>
+                    <div class="tabPrimBtn" data-tab="projet">Mes Projets</div>
+                    <div class="tabPrimBtn" data-tab="certif">Mes Certifications</div>
+                    <div class="tabPrimBtn" data-tab="documentation">Documentations</div>
                     <div class="tabPrimBtn" data-tab="contact">Contact</div>
-                    <div class="tabPrimBtn" id="btn-desktop" onclick="window.open('https:/\/portfolio.xavier-sampaio.me', '_blank')"> Version desktop </div>
                 </div>
             </div>
 
@@ -252,239 +251,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Projet  teck sio gsb zengarden-->
-                <div id="tab-projet" class="tab-pane">
-                    <h3>Projets Scolaire</h3>
+                </div><div id="tab-projet" class="tab-pane">
+                    <h3>Mes Projets</h3>
                     <div id='projet-lst'>
-                        <!-- Projet 1 | Teck SIO-->
-                        <div class="prog">
-                            <div class="imgflex">
-                                <img src="data/image/projet/TeckSio/preview.webp">
-                            </div>
-                            <h3> Teck sio </h3>
-                            <p>Le projet consister a amenager des locaux a partir d'un cahier des charge.</p>
-                            <button class="voir-plus-btn">Voir plus</button>
-                            <!-- Détails cachés -->
-                            <div class="details-modal">
-                                <div class="details-content">
-                                    <div class="details-header">
-                                        <pre> Portfolio Sampaio Xavier | Détails Teck SIO </pre>
-                                        <span class="close-details">&times;</span>
-                                    </div>
-
-                                    <div class="details-body">
-                                        <p>Diagrame</p>
-                                        <div class="imgflex">
-                                            <img src="/data/image/projet/TeckSio/Previsionnel.png">
-                                            <img src="/data/image/projet/TeckSio/Reel.png">
-                                        </div>
-                                        <h5>Contexte</h5><br>
-                                        <p>
-                                            TeckSio est une entreprise IoT en croissance devant déménager dans de
-                                            nouveaux locaux.
-                                            L'occasion de tout repenser : espaces, parc matériel et infrastructure
-                                            réseau from scratch.
-                                        </p>
-
-                                        <h5>Objectif</h5><br>
-                                        <p>
-                                            Concevoir l'infrastructure informatique complète des nouveaux locaux, du
-                                            choix du matériel
-                                            jusqu'à la sécurisation du réseau Wi-Fi, en respectant un budget réel.
-                                        </p>
-
-                                        <h5>Réalisations</h5><br>
-                                        <p>
-                                            Projet mené en équipe avec un planning prévisionnel, des points
-                                            d'avancement réguliers
-                                            et une validation par étapes. Chaque membre avait un périmètre défini :
-                                            agencement des locaux, devis matériel, schémas réseau (physique et
-                                            logique) et sécurité.
-                                        </p>
-
-                                        <h5>Difficultés</h5><br>
-                                        <p>
-                                            Coordonner le travail d'équipe sur un projet multi-étapes : respecter le
-                                            planning,
-                                            se répartir les tâches efficacement et maintenir une cohérence entre les
-                                            différentes
-                                            parties du dossier.
-                                        </p>
-                                        <h5> Competence :</h5><br>
-                                        <div class="competence">
-                                            <p> <strong>Travailler en mode projet</strong> </p><br>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Projet 2  | GSB -->
-                        <div class="prog">
-                            <div class="imgflex">
-                                <img src="data/image/projet/GSB/preview.webp">
-                            </div>
-                            <h3> GSB - HA Proxy</h3>
-
-                            <p>
-                                Dans le contexte GSB, j'ai du monter un reseau WAN/LAN/DMZ.
-                                Le projet permet le deployement de service de redondance, Monitoring, Windows
-                                server, Ticketing
-                            </p>
-                            <button class="voir-plus-btn">Voir plus</button>
-                            <!-- Détails cachés -->
-                            <div class="details-modal">
-                                <div class="details-content">
-                                    <div class="details-header">
-                                        <pre> Portfolio Sampaio Xavier | Détails HA Proxy </pre>
-                                        <span class="close-details">&times;</span>
-                                    </div>
-
-                                    <div class="details-body">
-                                        <p class="indice"> Date de realisation: 08/09/25 08/12/25 </p> <br>
-                                        <p> plan du projet </p>
-                                        <div class="imgflex">
-                                            <img src="data/image/projet/GSB/GSB_Plan.webp">
-                                        </div>
-                                        <br>
-                                        <h5>Contexte</h5><br>
-                                        <p>
-                                            Dans le cadre du projet GSB, j'ai déployé un HAProxy en DMZ afin
-                                            d'assurer
-                                            la haute disponibilité et la répartition de charge des services exposés
-                                            de l'entreprise.
-                                        </p>
-
-                                        <h5>Objectif</h5><br>
-                                        <p>
-                                            Mettre en place un reverse proxy fiable permettant de distribuer le
-                                            trafic entrant
-                                            vers plusieurs serveurs backends, tout en garantissant la continuité de
-                                            service.
-                                        </p>
-
-                                        <h5>Réalisations</h5><br>
-                                        <p>
-                                            Configuration de HAProxy pour répartir la charge entre plusieurs
-                                            serveurs web.
-                                            Mise en place de vérifications d'état (health checks) pour basculer
-                                            automatiquement
-                                            vers un serveur disponible en cas de panne.
-                                        </p>
-
-                                        <h5>Difficultés rencontrées</h5><br>
-                                        <p>
-                                            La principale difficulté a été de comprendre la logique de configuration
-                                            de HAProxy
-                                            (frontends, backends, ACL) et de l'intégrer correctement dans la DMZ
-                                            avec les bonnes
-                                            règles de pare-feu.
-                                        </p>
-                                        <h5>Difficultés rencontrées</h5><br>
-                                        <p>
-                                            La principale difficulté a été de comprendre la logique frontend/backend
-                                            de HAProxy
-                                            et de définir les bons health checks pour que le basculement automatique
-                                            fonctionne
-                                            correctement. L'intégration dans la DMZ avec les règles de pare-feu
-                                            associées
-                                            a également demandé plusieurs ajustements.
-                                        </p>
-                                        <h5> Competence :</h5><br>
-                                        <div class="competence">
-                                            <p> <strong>Gérer le patrimoine Informatique</strong> </p><br>
-                                            <!-- uri /admin en parler dans porjet suivant -->
-                                            <p> <strong>Mettre à disposition des utilisateurs un service
-                                                    informatique</strong> </p><br> <!-- Deploiment de service -->
-                                            <p> <strong>Organiser son développement professionnel</strong> </p><br>
-                                            <!-- Dans un contexte scolaire donc OUI -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Projet 3  | THIS PORTFOLIO-->
-                        <div class="prog">
-                            <img src="data/image/projet/Portfolio/Portfolio.webp">
-                            <h3>This Portfolio</h3>
-
-                            <p>
-                                Portfolio interactif inspiré d’un terminal Linux, permettant de naviguer dans mes
-                                projets
-                                à travers une interface originale et immersive.
-                            </p>
-                            <button class="voir-plus-btn">Voir plus</button>
-
-                            <!-- Détails cachés -->
-                            <div class="details-modal">
-                                <div class="details-content">
-                                    <div class="details-header">
-                                        <pre>Portfolio Sampaio Xavier | Détails du portfolio</pre>
-                                        <span class="close-details">&times;</span>
-                                    </div>
-
-                                    <div class="details-body">
-                                        <p class="indice">Date de réalisation : 09/02/26 - Aujourd'hui</p><br>
-
-                                        <h5>Contexte :</h5><br>
-                                        <p>
-                                            Ce projet de portfolio a pour but de montrer mon intérêt pour Linux et
-                                            de présenter mes projets.
-                                        </p><br>
-
-                                        <h5>Objectif :</h5><br>
-                                        <p>
-                                            Créer un portfolio interactif et original, inspiré d’un environnement en
-                                            ligne de commande,
-                                            afin de proposer une expérience utilisateur différente et démontrer mes
-                                            compétences en développement web.
-                                        </p><br>
-
-                                        <h5>Points de réalisation :</h5><br>
-                                        <p>
-                                            Plus de 800 lignes de CSS,
-                                            1200 lignes de JavaScript et
-                                            1200 lignes de HTML
-                                            pour un système entièrement simulé.
-                                        </p><br>
-
-                                        <h5>Difficultés :</h5><br>
-                                        <p>
-                                            La mise en place du système de fichiers simulé (arbre en JavaScript),
-                                            la gestion globale du portfolio (initialement pensé en ligne de
-                                            commande),
-                                            et le respect des bonnes pratiques de développement en partant de zéro.
-                                            Mise en ligne de maniere securisé via reverse proxy
-                                        </p>
-                                        <br><!-- Cacher une identité derriere un serveur pour qu'il puissent en avoir plusieurs pour la meme tache -->
-                                        <h5>Compétences :</h5><br>
-                                        <div class="competence">
-                                            <p> <strong>Gérer le patrimoine Informatique</strong> </p><br>
-                                            <!-- uri /admin  image de mon /admin -->
-                                            <p><strong>Développer la présence en ligne d’une organisation</strong>
-                                            </p><br> <!-- Participer à l’évolution d’un site Web exploitant les données de l’organisation. -->
-                                            <p><strong>Organiser son développement professionnel</strong></p>
-                                            <!-- J'ai appris le Javascript en realisant le projet-->
-                                        </div>
-
-                                        <div class="allerplusloin">
-                                            <a href="#" target="_blank" rel="noopener noreferrer">Site officiel</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ProjetPerso -->
-                <div id="tab-projet-pers" class="tab-pane">
-                    <div id='projet-lst-perso'>
                         <!-- Projet 1 | Raspberry pi -->
                         <div class="progperso">
                             <div class="imgflex">
-                                <img src="data/image/projetperso/RouteurPreview.webp">
+                                <img src="data/image/projet/Rasp/RouteurPreview.webp">
                             </div>
                             <h3> Routeur Diy :</h3>
                             <p>
@@ -503,29 +276,29 @@
                                             <ul>
                                                 <li> Avoir un appareil avec au moins 2 ports RJ45 (je passe par un
                                                     Raspberry avec un hats)</li>
-                                                <li> Être motivé car il faut comprendre IPtables/notables</li>
+                                                <li> Être motivé car il faut comprendre iptables/nftables</li>
                                             </ul>
                                         </div>
                                         <div class="Comment faire"><br>
                                             <p> Je suis parti sur un Raspberry Pi 5 avec un Hats qui fait Nvme 2230
                                             </p>
                                             <div class="imgflex">
-                                                <img src="/data/image/projetperso/rasppi5.webp">
-                                                <img src="/data/image/projetperso/hatsrpi5.webp">
+                                                <img src="/data/image/projet/Rasp/rasppi5.webp">
+                                                <img src="/data/image/projet/Rasp/hatsrpi5.webp">
                                             </div>
 
                                             <h5>1. Autoriser le routage </h5>
                                             <code class="code">
-                                            net.ipv4.ip_forward = 1 //dans le /etc/sysctl.conf
-                                        </code>
-                                            <p class="indice">par défaut le net.ipv4.ip_forward est a 0</p><br>
+                                                net.ipv4.ip_forward = 1 //dans le /etc/sysctl.conf
+                                            </code>
+                                            <p class="indice">par défaut le net.ipv4.ip_forward est a 0</p>
 
                                             <h5>2. Trouver les interfaces</h5>
                                             <code class="code">
-                                            ip a 
-                                        </code>
-                                            <p class="indice"> Les interfaces sont generalement ensXX ethX enxX</p>
-
+                                                ip a 
+                                            </code>
+                                            <p class="indice"> Les interfaces sont generalement ensXX ethX</p><br>
+                                            <p> Penser a autoriser le ssh avant de mettre en places vos regles</p>
                                             <h5>3. Iptables ou Nftables</h5><br>
                                             <p>
                                                 Sur Ubuntu LTS 24/26, nftables est le successeur moderne d’iptables
@@ -534,16 +307,195 @@
                                                 pour la compatibilité, souvent via une couche de traduction, donc
                                                 les anciennes commandes peuvent encore fonctionner.
                                                 (pour mon plus grand desarois, je me suis rendu compte que c'etais
-                                                nftables apres 10h de recherche). PS: voir documentation pour
-                                                fonctionnment Iptables Nftables
+                                                nftables apres 10h de recherche).
                                             </p><br>
 
-                                            <h5>4. Rendre les règles permanentes </h5>
+                                            <h5>4.1  Generalité</h5>
+                                            <p>
+                                                Depuis le noyau 2.4 de linux (aujourd'hui superieur a 6.XX).
+                                                Le routage du noyau linux est  basé sur netfilter un FrameWork de parefeu.
+                                                Le routage peut se faire:<br>
+                                                 - PREROUTING : avant la décision de routage. Plus orienté DNAT conntrack<br>
+                                                 - POSTROUTING : après la décision de routage, juste avant la sortie. Plus orienté Snat masq<br> 
+                                                 avant le routage(prerouting qui contient DNAT/conntrack) ou apres(postrouting qui contient SNAT/Masq) 
+                                                Netfilter est un cadriciel du noyau Linux permettant le filtrage réseau, le NAT et le suivi des connexions. 
+                                                Il est intégré au noyau Linux à partir de la version 2.4. Le projet netfilter/iptables a été lancé en 1998 par Rusty Russell.
+                                            </p>
+                                            <h5>4.1.1 Definitions utiles</h5>
+                                            <p class="indice">
+                                                DNAT = Destination Nat
+                                                SNAT = Sources Nat
+                                            </p>
+                                            <h5>4.2  Iptables</h5>
+
+                                            <p>
+                                                Iptables utilise des tables pour ses diferente chaines (des lignes de passage pour l'image)
+                                                qui sont de plusieurs type:
+                                            </p>
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Table</th>
+                                                        <th>Role</th>
+                                                        <th>Chaine Disponibles</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>filter</th>
+                                                        <th>Filtre</th>
+                                                        <th>INPUT,OUTPUT,FORWARD</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>nat</th>
+                                                        <th>Translation d'adress</th>
+                                                        <th>PREROUTING, OUTPUT, POSTROUTING</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>mangle</th>
+                                                        <th>Modification</th>
+                                                        <th>TOUT</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>raw</th>
+                                                        <th>Bypass de conntrack</th>
+                                                        <th>PREROUTING, OUTPUT</th>
+                                                    </tr>
+                                                </tbody>
+                                            </table><br>
+
+                                            <p> Iptables utilise des cibles(targets) dans sa gestions de règles du style</p>
+                                            <ul>
+                                                <li>Accept - Laisse passer</li>
+                                                <li>Drop - jeter sans reponse</li>
+                                                <li>Reject - Jeter avec reponse</li>
+                                                <li>Log - Logger dans le syslog</li>
+                                                <li>Masquerade - SNAT dynamique</li>
+                                                <li>DNAT - Reecriture de la Destination (IP dest)</li> 
+                                            </ul><br>
+                                            
+                                            <br> <p> Pour chaque regles il faut une table uen chain un match  puis un target voici les match</p> 
+                                            <ul>
+                                                <li>INPUT</li>
+                                                <li>OUTPUT</li>
+                                                <li>FORWARD</li>
+                                                <li>PREROUTING</li>
+                                                <li>POSTROUTING</li>
+                                            </ul>
+                                            <h5>4.2.1 Syntaxe</h5>
+                                            <code class="code">    
+                                                iptables -t [table] -A [chain] [match] -j [target]<br>
+                                                # -A = Append   -I = Insert (en tête)   -D = Delete
+                                            </code>
+                                            <h5>4.2.2 Exemples</h5>
                                             <code class="code">
-                                            # pour iptables  utiliser  -A pour rendre persistent (penser a installer iptables-persistent)
-                                            nft -f /etc/nftables.conf # pour nftables
-                                        </code>
-                                            <p class="indice"> Penser a mettre en place un dhcp </p>
+                                                # Autoriser SSH entrant<br>
+                                                iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+                                                <br><br>
+                                                # Bloquer une IP<br>
+                                                iptables -A INPUT -s 192.168.1.50 -j DROP
+                                                <br><br>
+                                                # Voir les connexions<br>
+                                                iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+                                            </code>
+                                            <h5>4.2.3 Commandes importantes</h5>
+                                            <code class="code">
+                                                # Afficher les règles avec numéros<br>
+                                                iptables -L -n -v --line-numbers<br>
+                                                <br><br>
+                                                # Sauvegarder / restaurer<br>
+                                                # faut installer l'outils iptables-persistent<br>
+                                                apt install iptables-persistent<br>
+                                                netfilter-persistent save # premiere sauvegarde<br>
+                                                iptables-save > /etc/iptables/rules.v4<br>
+                                                iptables-restore < /etc/iptables/rules.v4<br>
+                                            </code>
+
+
+
+                                            <h5>4.3  Nftables</h5>
+                                            <p> 
+                                                nftables est  le remplaçant moderne d’iptables et il est installé/activé par défaut sur de nombreuses distributions récentes 
+                                                (dont Ubuntu 22.04 et suivantes). Il fournit une CLI unique (nft) qui unifie IPv4/IPv6 et simplifie la gestion des règles.<br>
+                                                nftables a une hierarchie qui est  Table => chain => rules<br>
+                                                Par défaut, il n'y a pas de règles pre remplis il faut les creer sois meme (certain service ou distribution le font par default)<br>
+                                                Contrairement à iptables où il y a plusieurs commandes distinctes 
+                                                (iptables, ip6tables, arptables, ebtables), nftables gère tout depuis la même interface <br>
+                                                La tables la plus courante pour nftables est inet elle gere IPV4 et IPV6
+                                            </p>
+
+                                            <h5>4.3.1 Regles de base</h5>
+
+                                            <code class="code"># Créer une table<br>
+                                                nft add table inet filter<br><br>
+
+                                                # Créer une chain (type filter, hook input, priorité 0)<br>
+                                                nft add chain inet filter input { type filter hook input priority 0 \; policy drop \; }<br><br>
+
+                                                # Ajouter une règle<br>
+                                                nft add rule inet filter input tcp dport 22 accept<br><br>
+                                            </code>
+                                            <pre class="predata">
+#!/usr/sbin/nft -f
+flush ruleset
+
+table inet filter {
+    chain input {
+        type filter hook input priority 0; policy drop;
+
+        # Loopback
+        iif "lo" accept
+
+        # Connexions établies
+        ct state established,related accept
+
+        # SSH
+        tcp dport 22 accept
+
+        # HTTP/S
+        tcp dport { 80, 443 } accept
+
+        # Ping
+        icmp type echo-request accept
+        icmpv6 type echo-request accept
+
+        # Tout le reste = drop (policy)
+    }
+
+    chain forward {
+        type filter hook forward priority 0; policy drop;
+    }
+
+    chain output {
+        type filter hook output priority 0; policy accept;
+    }
+}
+
+table ip nat {
+    chain postrouting {
+        type nat hook postrouting priority 100;
+        oif "eth0" masquerade
+    }
+}
+</pre>
+                                            <h5>4.3.2 Appiquer les regles </h5>
+                                            <code class="code">
+                                                nft -f /etc/nftables.conf #pour charger le code<br>
+                                                systemctl enable --now nftables
+                                            </code>
+                                            <h5>4.3.3 commandes utiles</h5>
+                                            <pre class="predata">
+                                                nft list ruleset              # Voir tout
+nft list table inet filter    # Une table
+nft flush ruleset             # Tout effacer
+nft -f /etc/nftables.conf     # Charger un fichier
+
+# Supprimer une règle par handle
+nft list ruleset -a           # Affiche les handles
+nft delete rule inet filter input handle 5
+
+</pre>
+                                            <p class="indice"> Penser a mettre en place un dhcp pour la simplicité </p>
                                         </div>
                                     </div>
                                 </div>
@@ -578,17 +530,17 @@
 
                                             <h5>2. Relier le VPS au homelab via WireGuard</h5>
                                             <code class="code">
-                                        # Sur le VPS et la machine locale : apt install wireguard<br>
-                                        # Voir section WireGuard de la documentation
-                                    </code>
+                                                # Sur le VPS et la machine locale : apt install wireguard<br>
+                                                # Voir section WireGuard de la documentation
+                                            </code>
                                             <p class="indice">Le VPS devient la passerelle publique — le homelab
                                                 reste injoignable directement depuis internet.</p><br>
 
                                             <h5>3. Installer HAProxy sur le VPS</h5>
                                             <code class="code">
-                                        apt install haproxy<br>
-                                        # Voir section HAProxy de la documentation
-                                    </code>
+                                                apt install haproxy<br>
+                                                # Voir section HAProxy de la documentation
+                                            </code>
                                             <p class="indice">HAProxy reçoit les requêtes publiques et les redirige
                                                 vers le homelab via le tunnel WireGuard.</p><br>
 
@@ -601,7 +553,8 @@ bind *:443 ssl crt /etc/haproxy/certs/example.pem
 default_backend homelab
 
 backend homelab
-server nas 10.0.0.2:80 check  # IP WireGuard du homelab</pre>
+server nas 10.0.0.2:80 check  # IP WireGuard du homelab
+</pre>
                                             <p class="indice">L'IP <code>10.0.0.2</code> est l'adresse WireGuard de
                                                 la machine locale — pas l'IP publique.</p><br>
 
@@ -612,7 +565,8 @@ ufw allow 22/tcp    # SSH
 ufw allow 80/tcp    # HTTP
 ufw allow 443/tcp   # HTTPS
 ufw allow 51820/udp # WireGuard
-ufw enable</pre>
+ufw enable
+</pre>
                                             <p class="indice">Ajouter le port 22 a UFW avant de l'activer.</p><br>
 
                                             <h5>6. Certificat SSL avec Certbot</h5>
@@ -775,7 +729,256 @@ nextcloud:
                                 </div>
                             </div>
                         </div>
+                        <!-- Projet 4  | THIS PORTFOLIO-->
+                        <div class="progperso">
+                            <img src="data/image/projet/Portfolio/Portfolio.webp">
+                            <h3>This Portfolio</h3>
+
+                            <p>
+                                Portfolio interactif inspiré d’un terminal Linux, permettant de naviguer dans mes
+                                projets
+                                à travers une interface originale et immersive.
+                            </p>
+                            <button class="voir-plus-btn">Voir plus</button>
+
+                            <!-- Détails cachés -->
+                            <div class="details-modal">
+                                <div class="details-content">
+                                    <div class="details-header">
+                                        <pre>Portfolio Sampaio Xavier | Portfolio</pre>
+                                        <span class="close-details">&times;</span>
+                                    </div>
+
+                                    <div class="details-body">
+                                        <p class="indice">Date de réalisation : 09/02/26 - Aujourd'hui</p><br>
+
+                                        <p> 
+                                            Mise en place d'un portfolio technique dans le but de monter mon expertise et mon amour pour linux en open source (GPLV3).
+                                            Vous pouvez également retrouver sur mon github/gitea(en cours de constructions) d'autres projet réalisé. 
+                                            Ce choix technique a été fait pour montrer ma technique aupres des techniciens.
+                                        </p>
+                                        <p> Ce portfolio possede une arborescence simulé en javascript et un versionning que je tente de maintenir </p>
+                                        <div class="allerplusloin">
+                                            <a href="#" target="_blank" rel="noopener noreferrer">Site officiel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Projet 5  | ZEN GARDEN-->
+                        <div class="progperso">
+                            <img src="data/image/projet/Zengarden/preview.png">
+                            <h3> Zengarden </h3>
+
+                            <p>Un projet dans le but de decouvrir le css </p>
+                            <button class="voir-plus-btn">Voir plus</button>
+                            <!-- Détails cachés -->
+                            <div class="details-modal">
+                                <div class="details-content">
+                                    <div class="details-header">
+                                        <pre> Portfolio Sampaio Xavier |  CSS Zengarden </pre>
+                                        <span class="close-details">&times;</span>
+                                    </div>
+
+                                    <div class="details-body">
+                                        <p class="indice"> Date de realisation: 07/11/25  19/12/25 </p> <br>
+                                        <img src="data/image/projet/Zengarden/SiteOff.png">
+                                        <p>
+                                            Un projet réalisé dans l'objectif de decouvrir le CSS au travers d'un projet qui est le zengarden 
+                                            
+                                        </p>
+                                        <a href="https://zengarden.xavier-sampaio.me">Lien</a> 
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                <!-- Mes Certifs-->
+                <div id="tab-certif" class="tab-pane">
+                    <h5> J'ai passé certaines certifications durant mon parcours scolaire</h5>
+                    <div class="certif-lst">
+                         <div class="certif">
+                            <div class="tags">
+                                <span class=tag>Mooc</span> 
+                                <span class=tag>ANSSI</span> 
+                                <span class=tag>Pre BAC</span> 
+                            </div>
+                            <h5>Mooc cybersecurité</h5>
+                            <div class="imgflex"><img src="data/image/certif/certification-secnum-anssi.jpg"></div>
+                            <div class="indice">Decembre 2023</div>
+                        </div>
+                        <div class="certif">
+                            <div class="tags">
+                                <span class=tag>cisco</span> 
+                            </div>
+                            <h5>Les Bases du protocole Internet</h5>
+                            <div class="imgflex"><img src="data/image/certif/BaseProtocolReseau.png"></div>
+                            <div class="indice">18 juin 2024</div>
+                        </div>
+                        <div class="certif"> 
+                            <div class="tags">
+                                <span class=tag>cisco</span> 
+                                <span class=tag>Pre Bac</span> 
+                            </div> 
+                            <h5> Introduction to IoT</h5>
+                            <div class="imgflex"><img src="data/image/certif/certificate_icon.svg"></div>
+                            <div class="indice">19 mars 2024</div>
+                        </div>
+                        <div class="certif">
+                            <div class="tags">
+                                <span class=tag>cisco</span> 
+                                <span class=tag>Pre Bac</span> 
+                            </div> 
+                            <h5>CCNAv7: Introduction to Networks </h5>
+                            <div class="imgflex"><img src="data/image/certif/certificate_icon.svg"></div>
+                            <div class="indice">18 juin 2024</div>
+                        </div>
+                        <div class="certif">
+                            <div class="tags">
+                                <span class=tag>cisco</span> 
+                            </div>
+                            <h5> Personal Computers</h5>
+                            <div class="imgflex"><img src="data/image/certif/PC.png"></div>
+                            <div class="indice">27 Septembre 2024</div>
+                        </div>
+                        <div class="certif">
+                            <div class="tags">
+                                <span class=tag>cisco</span> 
+                            </div>
+                            <h5> Mobile Devices</h5>
+                            <div class="imgflex"><img src="data/image/certif/Mobile.png"></div>
+                            <div class="indice">27 Septembre 2024</div>
+                        </div>
+                        <div class="certif">
+                            <div class="tags">
+                                <span class=tag>cisco</span> 
+                            </div>
+                            <h5>Laptops</h5>
+                            <div class="imgflex"><img src="data/image/certif/Laptop.png"></div>
+                            <div class="indice">27 Septembre 2024</div>
+                        </div>
+                        <div class="certif">
+                            <div class="tags">
+                                <span class=tag>cisco</span> 
+                            </div>
+                            <h5>Notions de base sur les réseaux</h5>
+                            <div class="imgflex"><img src="data/image/certif/Basereseau.png"></div>
+                            <div class="indice">6 Novembre 2024</div>
+                        </div>
+                    </div>
+                    <hr> <h5>En cours de certifications</h5>
+                    <div class="certif-lst">
+                        <div class="certif"> <!-- BTS SIO-->
+                            <div class="tags">
+                                <span class=tag>BTS</span> 
+                                <span class=tag>BAC +2</span> 
+                            </div>
+                            <h5>BTS SIO</h5>
+                            <p> Diplôme national — systèmes, réseaux, sécurité</p>
+                        </div>
+                    </div>
+                    <hr><h5>Certification prochaines</h5>
+                    <div class="certif-lst">
+                        <div class="certif"><!-- lINUX FONDATIONS -->
+                            <div class="tags">
+                                <span class=tag>Linux</span>  
+                                <span class=tag>Sysadmin</span>  
+                            </div>
+                            <h5>Linux Fondation - LFCS</h5>
+                            <p>Sysadmin Linux certifiée, exam pratique sur terminal</p>
+                        <div class="indice"> Prix: $425</div>
+
+                        </div>
+                        <div class="certif"><!-- Terraform -->
+                            <div class="tags">
+                                <span class=tag>IAS</span>  
+                                <span class=tag>DevOps</span>  
+                            </div>
+                        <h5>HashiCorp Terrraform Associate</h5>
+                        <p>IaC, providers, state</p>
+                        <div class="indice"> Prix: $70.50</div>
+
+                        </div>
+                        <div class="certif"> <!-- DCA (docker) -->
+                            <div class="tags">
+                                <span class=tag>Docker</span>  
+                                <span class=tag>Linux</span>  
+                            </div>
+                            <h5>Docker Certified Associate (DCA)</h5>
+                            <p>conteneurisation avancée, networking Docker,securité</p>
+                            <div class="indice"> Prix: $195</div>
+                        </div>
+                        <div class="certif"><!-- CompTIa Security+ -->
+                            <div class="tags">
+                                <span class=tag>Cybersecurité</span>  
+                                <span class=tag>Linux</span>  
+                            </div>
+                            <h5>CompTIA Security+</h5>
+                            <p>Certif sécurité reconnue mondialement</p>
+                            <div class="indice"> Prix: $392</div>
+                            
+                        </div>
+                    </div>
+                    <hr><h5>Maitrise non certifié</h5>
+                    <div class="certif-lst"> <!-- Terraform -->
+                        <div class="certif">
+                            <div class="tags">
+                                <span class=tag>Terrraform</span>  
+                                <span class=tag>virtualisation</span>  
+                            </div>
+                            <h5>Terraform </h5>
+                            <p>IAC -- Provider, module, State Backend</p>
+                            <div class="indice"> Prix: $70.50</div>
+
+                        </div>
+                        <div class="certif"> <!-- Proxmox -->
+                            <div class="tags">
+                                <span class=tag>Terrraform</span>  
+                                <span class=tag>virtualisation</span>  
+                            </div>
+                            <h5>Proxmox </h5>
+                            <p>LXC, VMs, clustering, stockage</p>
+                            <div class="indice"> Prix: 2 760€</div>
+                        </div>
+                        <div class="certif"> <!-- Docker -->
+                            <div class="tags">
+                                <span class=tag>Docker</span>  
+                                <span class=tag>virtualisation</span>  
+                            </div>
+                            <h5>Docker / docker compose </h5>
+                            <p>Stacks complètes : Mailcow, Gitea, Ollama, HAProxy</p>
+                            <div class="indice"> Prix: 80€/ mois de formations</div>
+                        </div>
+                        <div class="certif"> <!-- VPN -->
+                            <div class="tags">
+                                <span class=tag>Opensources</span>  
+                                <span class=tag></span>  
+                            </div>
+                            <h5>Sécurité réseau & VPN</h5>
+                            <p>WireGuard dual-tunnel, HAProxy SNI/TLS, VLAN, pare-feu</p>
+                            <div class="indice"> LPIC-2 ~400 $ (couvre VPN + firewall Linux) </div>
+                        </div>
+                        <div class="certif"> <!-- Mail -->
+                            <div class="tags">
+                                <span class=tag>auto-hébergée</span>  
+                                <span class=tag>Dockerisée</span>  
+                            </div>
+                            <h5>MailCow  -- Stack mail auto-hébergée</h5>
+                            <p>Mailcow, Postfix relay, SPF/DKIM/DMARC, DNS </p>
+                            <div class="indice"> LPIC-2 ~400 $ (couvre VPN + firewall Linux) </div>
+                        </div>
+                        <div class="certif"> <!-- Linux Distro -->
+                            <div class="tags">
+                                <span class=tag>distributions</span>  
+                                <span class=tag>Linux</span>  
+                            </div>
+                            <h5>Linux Avancé (Debian, Arch, NixOs,...)</h5>
+                            <p>Admin système, scripting, LUKS, RAID mdadm, systemd, NixOS/Wayland</p>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- Documentation -->
                 <div id="tab-documentation" class="tab-pane">
@@ -1018,7 +1221,7 @@ ignoreip = 127.0.0.1/8 192.168.1.0/24</pre>
                                 <div><br>
                                     <p class="instructions">2. Vérifier la propagation d'un record :</p>
                                     <code class="code">dig A example.com @8.8.8.8</code>
-                                    <p class="indice">Chercher la section "ANSWER SECTION" — si vide, le record
+                                    <p class="indice">Chercher "ANSWER SECTION" — si vide, le record
                                         n'est pas encore propagé.</p>
                                 </div>
 

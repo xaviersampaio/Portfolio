@@ -620,12 +620,14 @@ function man(inputCommandpart) {
         focus(focusCurser.onManSampaio);
         return;
     }
-    if (Filesystem['/bin/man.d/' + commandName]) {
-        fetch(Filesystem['/bin/man.d/' + commandName].content)
+    const manEntry = getNode('/bin/man.d/' + commandName);
+    if (manEntry) {
+        fetch(manEntry.content)
             .then(r => r.text())
             .then(data => pager(data.split('\n')))
     } else {
-        outputoutput(`pas d'entré pour la commande ${commandName}`);
+        outputoutput(`pas d'entrée pour la commande ${commandName}`);
+        console.log(commandName)
     }
 };
 function ollama(ollama) {
@@ -858,7 +860,7 @@ function interfacesampaio() { // parti portfolio initialise les onglet et leur m
     initTabs();     // Les onglets primordiaux
     initVoirPlus(); // Les modaux des modaux
     initDocTabs();  // Les documentations
-    initTagFilter() // Filtres des documentations 
+    initTagFilterdoc() // Filtres des documentations 
     initLightbox(); // L'ouverture des images en grand
 
 
@@ -893,7 +895,7 @@ function initTabs() { // initialise les onglets
 
   const tabButtons = document.querySelectorAll('.tabPrimBtn');
   const tabPanes = document.querySelectorAll('.tab-pane');
-  const tabPanesPerso = document.querySelectorAll('tab-pane-perso');
+  const tabPanesPerso = document.querySelectorAll('.tab-pane-perso');
 
   tabButtons.forEach(button => {
     button.addEventListener('click', function() {
@@ -976,7 +978,7 @@ function initDocTabs() { // initalise les documentations
         if (targetDoc) targetDoc.style.display = 'block';
     }
 };
-function initTagFilter() { //permet le filtrage des documentation
+function initTagFilterdoc() { //permet le filtrage des documentation
   document.querySelectorAll('.tag').forEach(tag => {
     tag.addEventListener('click', (e) => {
       e.stopPropagation(); // évite de déclencher le doc-btn en dessous
